@@ -1,10 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=3 format=3 uid="uid://s0hqcqgwpxn2"]
 
-[ext_resource type="PackedScene" uid="uid://cy4qll45yo1dm" path="res://levels/level_01.tscn" id="1_amnp7"]
+[ext_resource type="Script" path="res://ui/main_menu_hud.gd" id="1_7eaaw"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="LabelSettings" id="LabelSettings_c5p8y"]
+font_size = 50
 
-[node name="level" parent="." instance=ExtResource("1_amnp7")]
+[node name="HUD" type="CanvasLayer"]
+offset = Vector2(50, 50)
+transform = Transform2D(1, 0, 0, 1, 50, 50)
+script = ExtResource("1_7eaaw")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.656283, 0, 0.754515, 0.174268, 0.972962, 0.15158, -0.734114, 0.230967, -0.638538, 7.38578, 2.05092, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 405.0
+offset_bottom = 425.0
+theme_override_constants/separation = 27
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Shooter"
+label_settings = SubResource("LabelSettings_c5p8y")
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="JoinServerButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Join server"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]
