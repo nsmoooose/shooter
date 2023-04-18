@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp5hi7jguqf23"]
+
+[ext_resource type="PackedScene" uid="uid://brucrssuoq8nu" path="res://objects/fountain_foundation_01.glb" id="1_fmpck"]
+
+[node name="Fountain foundation 01" type="Node3D"]
+
+[node name="model" parent="." instance=ExtResource("1_fmpck")]

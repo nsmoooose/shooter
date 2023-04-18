@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw36q4ow5tmir"]
+
+[ext_resource type="PackedScene" uid="uid://cfe33o6a48lay" path="res://objects/garden_post_01.glb" id="1_246lr"]
+
+[node name="Garden post 01" type="Node3D"]
+
+[node name="model" parent="." instance=ExtResource("1_246lr")]

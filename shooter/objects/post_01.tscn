@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://j3qet8ao8ujn"]
+
+[ext_resource type="PackedScene" uid="uid://1c1rtjvoed2h" path="res://objects/post_01.glb" id="1_oduel"]
+
+[node name="Post 01" type="Node3D"]
+
+[node name="model" parent="." instance=ExtResource("1_oduel")]

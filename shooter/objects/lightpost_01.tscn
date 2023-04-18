@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlp8270waaflw"]
+
+[ext_resource type="PackedScene" uid="uid://bvpdif4urb27j" path="res://objects/lightpost_01.glb" id="1_uwqr7"]
+
+[node name="Lightpost 01" type="Node3D"]
+
+[node name="model" parent="." instance=ExtResource("1_uwqr7")]
+
+[node name="light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66032, 0)
+shadow_enabled = true
