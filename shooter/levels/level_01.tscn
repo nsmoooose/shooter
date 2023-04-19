@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=11 format=3 uid="uid://cy4qll45yo1dm"]
 
 [ext_resource type="PackedScene" uid="uid://dlp8270waaflw" path="res://objects/lightpost_01.tscn" id="1_spt8l"]
 [ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_7ukr1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfe33o6a48lay" path="res://objects/garden_post_01.glb" id="4_ul5d2"]
 [ext_resource type="PackedScene" uid="uid://dfrdx6no3f67n" path="res://objects/tree_01.tscn" id="5_n2v67"]
 [ext_resource type="PackedScene" uid="uid://qoa31tfvc41d" path="res://objects/slab_01.tscn" id="6_guxyt"]
+[ext_resource type="PackedScene" uid="uid://gojlvqopisd4" path="res://objects/ground_30m.tscn" id="7_vi4js"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_668kc"]
 
@@ -16,8 +17,9 @@ sky_material = SubResource("ProceduralSkyMaterial_668kc")
 background_mode = 2
 sky = SubResource("Sky_cgrqr")
 ambient_light_source = 3
-ambient_light_color = Color(0.823529, 0.823529, 0.823529, 1)
+ambient_light_color = Color(0.803922, 0.847059, 0.713726, 1)
 ambient_light_energy = 10.02
+tonemap_mode = 3
 ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
@@ -145,3 +147,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.934
 
 [node name="Slab 08" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.93424, 0, 11.7551)
+
+[node name="Ground 30M" parent="." instance=ExtResource("7_vi4js")]
