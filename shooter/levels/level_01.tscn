@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=14 format=3 uid="uid://cy4qll45yo1dm"]
 
 [ext_resource type="PackedScene" uid="uid://dlp8270waaflw" path="res://objects/lightpost_01.tscn" id="1_spt8l"]
 [ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_7ukr1"]
 [ext_resource type="PackedScene" uid="uid://j3qet8ao8ujn" path="res://objects/post_01.tscn" id="3_nnlce"]
+[ext_resource type="PackedScene" uid="uid://0ymjexola3ib" path="res://objects/tree_02.tscn" id="4_tpchf"]
 [ext_resource type="PackedScene" uid="uid://cfe33o6a48lay" path="res://objects/garden_post_01.glb" id="4_ul5d2"]
 [ext_resource type="PackedScene" uid="uid://dfrdx6no3f67n" path="res://objects/tree_01.tscn" id="5_n2v67"]
 [ext_resource type="PackedScene" uid="uid://qoa31tfvc41d" path="res://objects/slab_01.tscn" id="6_guxyt"]
 [ext_resource type="PackedScene" uid="uid://gojlvqopisd4" path="res://objects/ground_30m.tscn" id="7_vi4js"]
+[ext_resource type="PackedScene" uid="uid://vu4prd2aicbt" path="res://objects/tree_03.tscn" id="9_uw4tw"]
+[ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="10_q7v2t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_668kc"]
 
@@ -33,36 +36,6 @@ environment = SubResource("Environment_njyk6")
 [node name="Fountain foundation 01" parent="." instance=ExtResource("2_7ukr1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
 
-[node name="Post 01" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45848, 0, 7.98657)
-
-[node name="Post 02" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98757, 0, 7.98832)
-
-[node name="Post 03" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86021, 0, -0.763994)
-
-[node name="Post 07" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.3186, 0, -0.763994)
-
-[node name="Post 04" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.85876, 0, 3.58537)
-
-[node name="Post 08" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.2477, 0, 3.58537)
-
-[node name="Post 05" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86934, 0, 8.02632)
-
-[node name="Post 06" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, 8.02632)
-
-[node name="Post 10" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, 3.52408)
-
-[node name="Post 11" parent="." instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, -0.861716)
-
 [node name="garden_post_01" parent="." instance=ExtResource("4_ul5d2")]
 transform = Transform3D(0.0023387, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.0023387, -2.17336, 0, 8.91851)
 
@@ -72,10 +45,34 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.6853
 [node name="Tree 01" parent="." instance=ExtResource("5_n2v67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
 
+[node name="Tree 02" parent="." instance=ExtResource("4_tpchf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
+
+[node name="Tree 12" parent="." instance=ExtResource("4_tpchf")]
+transform = Transform3D(0.32063, 0, -0.947205, 0, 1, 0, 0.947205, 0, 0.32063, 3.61881, 0, -7.0453)
+
+[node name="Tree 03" parent="." instance=ExtResource("4_tpchf")]
+transform = Transform3D(0.817363, -0.044683, -0.574388, 0.134173, 0.984338, 0.114356, 0.560282, -0.170538, 0.810556, 9, 0, 5.47938)
+
+[node name="Tree 04" parent="." instance=ExtResource("9_uw4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 11)
+
 [node name="Lightposts" type="Node3D" parent="."]
 
 [node name="Lightpost 06" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73084, 0, 9.88214)
+
+[node name="Lightpost 07" parent="Lightposts" instance=ExtResource("1_spt8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02024, 0, -4.64003)
+
+[node name="Lightpost 11" parent="Lightposts" instance=ExtResource("1_spt8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3754, 0, -4.64003)
+
+[node name="Lightpost 12" parent="Lightposts" instance=ExtResource("1_spt8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89302, 0, 7.59204)
+
+[node name="Lightpost 13" parent="Lightposts" instance=ExtResource("1_spt8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42993, 0, 7.59204)
 
 [node name="Lightpost 08" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13884, 0, 9.87647)
@@ -84,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13884, 0, 9.87647)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.6408, 0, 3.17893)
 
 [node name="Lightpost 10" parent="Lightposts" instance=ExtResource("1_spt8l")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.44184, 0, -1.83146)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.67812, 0, -0.304723)
 
 [node name="Slabs around fountain" type="Node3D" parent="."]
 
@@ -143,10 +140,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.725
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.67631, 0, -5.21388)
 
 [node name="Slab 44" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.69284, 0, -5.21388)
+transform = Transform3D(-1, 0, -8.74228e-08, -1.03664e-08, 0.992945, 0.118577, 8.6806e-08, 0.118577, -0.992945, -3.69284, 0, -5.21388)
 
 [node name="Slab 45" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.70936, 0, -5.21388)
+transform = Transform3D(-1, 0, -8.74228e-08, -3.82095e-09, 0.999044, 0.0437066, 8.73393e-08, 0.0437066, -0.999044, -4.70936, 0, -5.21388)
 
 [node name="Slab 46" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.72589, 0, -5.21388)
@@ -212,7 +209,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.356
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 1.82911)
 
 [node name="Post 12" parent="Slabs around fountain" instance=ExtResource("3_nnlce")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, -5.25698)
+transform = Transform3D(0.0600729, 0, 0.998194, 0, 1, 0, -0.998194, 0, 0.0600729, -6.41918, 0, -5.25698)
 
 [node name="Post 13" parent="Slabs around fountain" instance=ExtResource("3_nnlce")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.97817, 0, -5.25698)
@@ -248,13 +245,13 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.1557
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.90344, 0, -5.25698)
 
 [node name="Slab 39" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, -1.5677)
+transform = Transform3D(-4.37114e-08, 0, 1, 0.0035081, 0.999994, 1.53344e-10, -0.999994, 0.0035081, -4.37111e-08, -6.35613, 0, -1.5677)
 
 [node name="Slab 40" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, -3.56683)
+transform = Transform3D(0.00954676, 0.0459014, 0.9989, 2.00651e-09, 0.998946, -0.0459035, -0.999954, 0.000438232, 0.0095367, -6.35613, 0, -3.56683)
 
 [node name="Slab 41" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, -4.56767)
+transform = Transform3D(-4.36919e-08, -0.029893, 0.999553, -1.30667e-09, 0.999553, 0.029893, -1, 0, -4.37114e-08, -6.35613, 0, -4.56767)
 
 [node name="Slab 42" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, -2.56616)
@@ -269,3 +266,56 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.934
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.93424, 0, 11.7551)
 
 [node name="Ground 30M" parent="." instance=ExtResource("7_vi4js")]
+
+[node name="Posts" type="Node3D" parent="."]
+
+[node name="Post 01" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45848, 0, 7.98657)
+
+[node name="Post 02" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98757, 0, 7.98832)
+
+[node name="Post 03" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86021, 0, -0.763994)
+
+[node name="Post 07" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.3186, 0, -0.763994)
+
+[node name="Post 04" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.85876, 0, 3.58537)
+
+[node name="Post 08" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.2477, 0, 3.58537)
+
+[node name="Post 05" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86934, 0, 8.02632)
+
+[node name="Post 06" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, 8.02632)
+
+[node name="Post 10" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, 3.52408)
+
+[node name="Post 11" parent="Posts" instance=ExtResource("3_nnlce")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, -0.861716)
+
+[node name="Tree 05" parent="." instance=ExtResource("10_q7v2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54354, 0, 9.33032)
+
+[node name="Tree 06" parent="." instance=ExtResource("10_q7v2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15962, 0, 7.63694)
+
+[node name="Tree 07" parent="." instance=ExtResource("10_q7v2t")]
+transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 8.47948, 0, -5.43975)
+
+[node name="Tree 08" parent="." instance=ExtResource("10_q7v2t")]
+transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 6.46624, 0, -6.86971)
+
+[node name="Tree 09" parent="." instance=ExtResource("10_q7v2t")]
+transform = Transform3D(0.0829474, 0, -0.996554, 0, 1, 0, 0.996554, 0, 0.0829474, -4.69128, 0, -6.86971)
+
+[node name="Tree 10" parent="." instance=ExtResource("10_q7v2t")]
+transform = Transform3D(-0.897156, 0.223709, -0.380875, 0.205921, 0.974656, 0.087421, 0.390779, 0, -0.920484, -2.37699, 0, -7.52825)
+
+[node name="Tree 11" parent="." instance=ExtResource("10_q7v2t")]
+transform = Transform3D(-0.808884, 0, -0.587969, 0, 1, 0, 0.587969, 0, -0.808884, 1.2732, 0, -6.75682)
