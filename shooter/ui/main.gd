@@ -4,4 +4,4 @@ func _on_hud_game_quit():
 	get_tree().quit()
 
 func _on_hud_game_start():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://game.tscn")
