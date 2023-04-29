@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp5hi7jguqf23"]
+[gd_scene load_steps=3 format=3 uid="uid://dp5hi7jguqf23"]
 
 [ext_resource type="PackedScene" uid="uid://brucrssuoq8nu" path="res://objects/fountain_foundation_01.glb" id="1_fmpck"]
 
-[node name="Fountain foundation 01" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gec0b"]
+height = 0.5
+radius = 2.0
+
+[node name="Fountain foundation 01" type="StaticBody3D"]
 
 [node name="model" parent="." instance=ExtResource("1_fmpck")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249873, 0)
+shape = SubResource("CylinderShape3D_gec0b")
