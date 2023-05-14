@@ -1,27 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://6spsc6u383wc"]
+[gd_scene load_steps=7 format=3 uid="uid://6spsc6u383wc"]
 
 [ext_resource type="Script" path="res://objects/light_switch_01.gd" id="1_ca45n"]
 [ext_resource type="PackedScene" uid="uid://cmn2u5wgose3y" path="res://objects/light_switch_01.glb" id="1_mncgu"]
 
-[sub_resource type="Animation" id="Animation_d72o4"]
-resource_name = "on"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("model/switch")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.0261769, 0, 0, 0.999657, 0.5001, 1, -0.0261769, 0, 0, 0.999657)
+[sub_resource type="BoxShape3D" id="BoxShape3D_5dfjy"]
+size = Vector3(0.1, 0.1, 0.01)
 
 [sub_resource type="Animation" id="Animation_q15xe"]
 resource_name = "off"
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("model/switch")
+tracks/0/path = NodePath("../model/switch")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -0.0261769, 0, 0, 0.999657, 0.5, 1, 0.0261769, 0, 0, 0.999657)
+
+[sub_resource type="Animation" id="Animation_d72o4"]
+resource_name = "on"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../model/switch")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.0261769, 0, 0, 0.999657, 0.5001, 1, -0.0261769, 0, 0, 0.999657)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_inj8k"]
 _data = {
@@ -29,17 +32,24 @@ _data = {
 "on": SubResource("Animation_d72o4")
 }
 
-[node name="light_switch_01" type="Node3D"]
+[node name="light_switch_01" type="StaticBody3D"]
 script = ExtResource("1_ca45n")
 
 [node name="model" parent="." instance=ExtResource("1_mncgu")]
 
 [node name="switch" parent="model" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.99863, 0.052336, 0, -0.052336, 0.99863, 0, 0, 0.0100405)
+transform = Transform3D(1, 0, 0, 0, 0.99863, -0.0523359, 0, 0.0523359, 0.99863, 0, 0, 0.0100405)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00483176)
+shape = SubResource("BoxShape3D_5dfjy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../model")
 libraries = {
 "": SubResource("AnimationLibrary_inj8k")
 }
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 
 [editable path="model"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=15 format=3 uid="uid://cy4qll45yo1dm"]
 
 [ext_resource type="PackedScene" uid="uid://dlp8270waaflw" path="res://objects/lightpost_01.tscn" id="1_spt8l"]
 [ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_7ukr1"]
+[ext_resource type="PackedScene" uid="uid://6spsc6u383wc" path="res://objects/light_switch_01.tscn" id="3_1j1pb"]
 [ext_resource type="PackedScene" uid="uid://j3qet8ao8ujn" path="res://objects/post_01.tscn" id="3_nnlce"]
 [ext_resource type="PackedScene" uid="uid://0ymjexola3ib" path="res://objects/tree_02.tscn" id="4_tpchf"]
 [ext_resource type="PackedScene" uid="uid://dfrdx6no3f67n" path="res://objects/tree_01.tscn" id="5_n2v67"]
@@ -66,6 +67,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.6408
 
 [node name="Lightpost 10" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.67812, 0, -0.304723)
+
+[node name="light_switch_01" parent="Lightposts" instance=ExtResource("3_1j1pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9253, 1.64832, 0)
 
 [node name="Slabs around fountain" type="Node3D" parent="."]
 
