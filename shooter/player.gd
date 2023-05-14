@@ -41,3 +41,5 @@ func _input(event):
 		rotate_y(-event.relative.x * look_sensitivity)
 		camera.rotate_x(-event.relative.y * look_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+	if event.is_action_pressed("activate"):
+		print("activate was activated")
