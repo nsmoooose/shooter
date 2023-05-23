@@ -11,7 +11,7 @@ extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_sensitivity = ProjectSettings.get_setting("player/look_sensitivity")
-var velocity_y = 0
+var friction:float = ProjectSettings.get_setting("player/friction")
 
 
 func _physics_process(delta):
@@ -28,8 +28,8 @@ func _physics_process(delta):
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, speed * delta * friction)
+		velocity.z = move_toward(velocity.z, 0, speed * delta * friction)
 	
 	move_and_slide()
 

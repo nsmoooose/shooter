@@ -56,3 +56,4 @@ escape={
 [player]
 
 look_sensitivity=0.005
+friction=2.0
