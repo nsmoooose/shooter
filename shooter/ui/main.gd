@@ -4,11 +4,11 @@ func load_level(level_name: String):
 	for x in $Level.get_children() + $HUD.get_children():
 		x.queue_free()
 	
-	var scene = load(level_name)
-	var instance = scene.instantiate()
+	var scene:Resource = load(level_name)
+	var instance:Node3D = scene.instantiate()
 	$Level.add_child(instance)
 	
-	var player = load("res://player.tscn")
+	var player:Resource = load("res://player.tscn")
 	instance = player.instantiate()
 	$Level.add_child(instance)
 	
