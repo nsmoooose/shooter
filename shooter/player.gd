@@ -34,7 +34,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 	if Input.is_action_just_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
 		
 func _input(event):
 	if event is InputEventMouseMotion:

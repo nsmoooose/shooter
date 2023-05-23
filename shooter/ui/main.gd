@@ -19,3 +19,5 @@ func _on_hud_game_quit():
 
 func _on_hud_game_start():
 	load_level("res://levels/level_01.tscn")
+	
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
