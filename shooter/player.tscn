@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://crnm1fnqtjppg"]
+[gd_scene load_steps=5 format=3 uid="uid://crnm1fnqtjppg"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_q25tv"]
+[ext_resource type="PackedScene" uid="uid://gsash2mghfw6" path="res://objects/knife_01.tscn" id="2_38xgb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yvcf8"]
 radius = 0.4
-height = 1.79
+height = 1.6
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2fyud"]
 radius = 0.4
-height = 1.79
+height = 1.6
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_q25tv")
@@ -16,12 +17,15 @@ script = ExtResource("1_q25tv")
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Character" type="MeshInstance3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897658, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.852, 0)
 mesh = SubResource("CapsuleMesh_yvcf8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897461, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.852464, 0)
 shape = SubResource("CapsuleShape3D_2fyud")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91444, 0)
+
+[node name="Knife_01" parent="Camera3D" instance=ExtResource("2_38xgb")]
+transform = Transform3D(0.733952, -0.0879407, -0.673485, -0.35077, 0.800035, -0.486728, 0.581614, 0.593473, 0.55634, 0.156729, -0.0693038, -0.0711989)

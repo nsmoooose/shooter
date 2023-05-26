@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://gsash2mghfw6"]
+
+[ext_resource type="PackedScene" uid="uid://byaems728pvvc" path="res://objects/knife_01.glb" id="1_fe230"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txrw1"]
+size = Vector3(0.191643, 0.0108701, 0.0406283)
+
+[node name="Knife_01" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0566351, 0, 0.0222227)
+
+[node name="model" parent="." instance=ExtResource("1_fe230")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104434, 0, -0.0252342)
+shape = SubResource("BoxShape3D_txrw1")
+
+[editable path="model"]
