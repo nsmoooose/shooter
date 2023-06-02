@@ -42,4 +42,5 @@ func _input(event):
 		camera.rotate_x(-event.relative.y * look_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	if event.is_action_pressed("activate"):
-		print("activate was activated")
+		get_node("Camera3D/knife").activate()
+

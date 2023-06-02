@@ -27,5 +27,5 @@ shape = SubResource("CapsuleShape3D_2fyud")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91444, 0)
 
-[node name="Knife_01" parent="Camera3D" instance=ExtResource("2_38xgb")]
+[node name="knife" parent="Camera3D" instance=ExtResource("2_38xgb")]
 transform = Transform3D(0.733952, -0.0879407, -0.673485, -0.35077, 0.800035, -0.486728, 0.581614, 0.593473, 0.55634, 0.156729, -0.0693038, -0.0711989)
