@@ -9,8 +9,7 @@ func load_level(level_name: String):
 	$Level.add_child(instance)
 	
 	var player:Resource = load("res://player.tscn")
-	instance = player.instantiate()
-	$Level.add_child(instance)
+	$Players.add_child(player.instantiate())
 	
 	$Camera3D.queue_free()
 
