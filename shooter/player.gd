@@ -48,7 +48,8 @@ func _input(event):
 			$Camera3D.global_position - $Camera3D.global_transform.basis.z * 100)
 		var collision = space.intersect_ray(query)
 		if collision:
-			print(collision.collider.name)
+			if collision.collider.has_method("activate"):
+				collision.collider.activate()
 
 	if event.is_action_pressed("inspect"):
 		get_node("Camera3D/knife").activate()

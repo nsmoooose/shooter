@@ -1,15 +1,17 @@
 extends Node3D
 
+@export var activated:bool = false
+@export var lamp:Node3D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func toggle():
+	if not lamp:
+		return
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_input_event(camera, event, position, normal, shape_idx):
-	print("HEEEEJK")
+	if lamp.has_method("toggle"):
+		lamp.toggle()
+	for n in lamp.get_children():
+		if n.has_method("toggle"):
+			n.toggle()
+	
+func activate():
+	toggle()

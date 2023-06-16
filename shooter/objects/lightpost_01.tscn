@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlp8270waaflw"]
+[gd_scene load_steps=4 format=3 uid="uid://dlp8270waaflw"]
 
+[ext_resource type="Script" path="res://objects/lightpost_01.gd" id="1_8es31"]
 [ext_resource type="PackedScene" uid="uid://bvpdif4urb27j" path="res://objects/lightpost_01.glb" id="1_uwqr7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pskrm"]
@@ -7,6 +8,7 @@ height = 2.5
 radius = 0.1
 
 [node name="Lightpost 01" type="StaticBody3D"]
+script = ExtResource("1_8es31")
 
 [node name="model" parent="." instance=ExtResource("1_uwqr7")]
 

@@ -42,34 +42,35 @@ environment = SubResource("Environment_njyk6")
 [node name="Fountain foundation 01" parent="." instance=ExtResource("2_7ukr1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
 
+[node name="light_switch_01" parent="." node_paths=PackedStringArray("lamp") instance=ExtResource("3_1j1pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9253, 1.64832, 0)
+lamp = NodePath("../Lightposts")
+
 [node name="Lightposts" type="Node3D" parent="."]
 
-[node name="Lightpost 06" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 01" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73084, 0, 9.88214)
 
-[node name="Lightpost 07" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 02" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02024, 0, -4.64003)
 
-[node name="Lightpost 11" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 03" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3754, 0, -4.64003)
 
-[node name="Lightpost 12" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 04" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89302, 0, 7.59204)
 
-[node name="Lightpost 13" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 05" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42993, 0, 7.59204)
 
-[node name="Lightpost 08" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 06" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13884, 0, 9.87647)
 
-[node name="Lightpost 09" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 07" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.6408, 0, 3.17893)
 
-[node name="Lightpost 10" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 08" parent="Lightposts" instance=ExtResource("1_spt8l")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.67812, 0, -0.304723)
-
-[node name="light_switch_01" parent="Lightposts" instance=ExtResource("3_1j1pb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9253, 1.64832, 0)
 
 [node name="Slabs around fountain" type="Node3D" parent="."]
 
