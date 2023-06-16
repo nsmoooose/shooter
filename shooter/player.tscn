@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://crnm1fnqtjppg"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_q25tv"]
-[ext_resource type="PackedScene" uid="uid://gsash2mghfw6" path="res://objects/knife_01.tscn" id="2_38xgb"]
+[ext_resource type="PackedScene" uid="uid://gsash2mghfw6" path="res://objects/weapons/knife_01.tscn" id="2_38xgb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yvcf8"]
 radius = 0.4

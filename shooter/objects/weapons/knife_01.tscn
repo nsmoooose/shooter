@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://gsash2mghfw6"]
 
-[ext_resource type="PackedScene" uid="uid://byaems728pvvc" path="res://objects/knife_01.glb" id="1_fe230"]
-[ext_resource type="Script" path="res://objects/knife.gd" id="1_j8ps5"]
+[ext_resource type="PackedScene" uid="uid://byaems728pvvc" path="res://objects/weapons/knife_01.glb" id="1_fe230"]
+[ext_resource type="Script" path="res://objects/weapons/knife.gd" id="1_j8ps5"]
 
 [sub_resource type="Animation" id="Animation_dd5xj"]
 resource_name = "knife_flip"
