@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://crnm1fnqtjppg"]
+[gd_scene load_steps=6 format=3 uid="uid://crnm1fnqtjppg"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_q25tv"]
 [ext_resource type="PackedScene" uid="uid://gsash2mghfw6" path="res://objects/weapons/knife_01.tscn" id="2_38xgb"]
@@ -10,6 +10,17 @@ height = 1.6
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2fyud"]
 radius = 0.4
 height = 1.6
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3hfid"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/2/path = NodePath("Camera3D:rotation")
+properties/2/spawn = true
+properties/2/sync = true
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_q25tv")
@@ -29,3 +40,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91444, 0)
 
 [node name="knife" parent="Camera3D" instance=ExtResource("2_38xgb")]
 transform = Transform3D(0.733952, -0.0879407, -0.673485, -0.35077, 0.800035, -0.486728, 0.581614, 0.593473, 0.55634, 0.156729, -0.0693038, -0.0711989)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_3hfid")

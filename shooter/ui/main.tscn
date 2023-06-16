@@ -14,11 +14,14 @@ script = ExtResource("1_qa5fr")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.924785, -0.380489, 0, 0.380489, 0.924785, 0, 0, 0, 1, 0, 2.07832, 14.3606)
 
-[node name="Level" type="Node3D" parent="."]
+[node name="Network" type="Node3D" parent="."]
 
-[node name="level_01" parent="Level" instance=ExtResource("2_4gtf4")]
+[node name="level_01" parent="Network" instance=ExtResource("2_4gtf4")]
 
-[node name="Players" type="Node3D" parent="."]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://levels/level_01.tscn", "res://player.tscn")
+spawn_path = NodePath("../Network")
 
+[connection signal="game_join" from="HUD/MainMenu" to="." method="_on_hud_game_join"]
 [connection signal="game_quit" from="HUD/MainMenu" to="." method="_on_hud_game_quit"]
 [connection signal="game_start" from="HUD/MainMenu" to="." method="_on_hud_game_start"]
