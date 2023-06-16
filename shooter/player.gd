@@ -41,6 +41,14 @@ func _input(event):
 		rotate_y(-event.relative.x * look_sensitivity)
 		camera.rotate_x(-event.relative.y * look_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
-	if event.is_action_pressed("activate"):
-		get_node("Camera3D/knife").activate()
 
+	if event.is_action_pressed("activate"):
+		var space = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create($Camera3D.global_position,
+			$Camera3D.global_position - $Camera3D.global_transform.basis.z * 100)
+		var collision = space.intersect_ray(query)
+		if collision:
+			print(collision.collider.name)
+
+	if event.is_action_pressed("inspect"):
+		get_node("Camera3D/knife").activate()
