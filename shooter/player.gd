@@ -13,6 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_sensitivity = ProjectSettings.get_setting("player/look_sensitivity")
 var friction:float = ProjectSettings.get_setting("player/friction")
 
+signal pause
+signal unpause
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -34,7 +36,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 	if Input.is_action_just_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			unpause.emit()
+		else:
+			pause.emit()
 		
 func _input(event):
 	if event is InputEventMouseMotion:
