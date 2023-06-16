@@ -1,4 +1,27 @@
 
 Tutorial on how to start:
   https://docs.godotengine.org/en/stable/getting_started/first_3d_game/index.html
+  https://kidscancode.org/godot_recipes/4.x/
+  https://godotengine.org/article/multiplayer-in-godot-4-0-scene-replication/
 
+* Light switch
+** Toggle animation of the switch
+** Store state of activated or not
+
+* Motion detector (link with lights or doors)
+
+* Light post
+** Material
+** Transparent top cover
+** Break when shooting at it.
+
+* FPS
+** Shooting bullets
+
+* Weapons
+** Toggle weapons
+** Gun
+
+* Level selector
+
+* Same level with different time of day
