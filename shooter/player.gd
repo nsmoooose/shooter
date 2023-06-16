@@ -3,7 +3,7 @@ extends CharacterBody3D
 # https://www.youtube.com/watch?v=77Tsd0OuPc8
 # https://github.com/devloglogan/MultiplayerFPSTutorial/blob/main/Player.gd
 
-@export var speed = 10.0
+@export var speed = 7.0
 @export var jump_velocity = 4.5
 
 @onready var camera:Camera3D = $Camera3D
