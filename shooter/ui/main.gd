@@ -13,28 +13,22 @@ func load_level(level_name: String):
 	var player:Resource = load("res://player.tscn")
 	var player_instance = player.instantiate()
 	player_instance.pause.connect(_on_pause)
-	player_instance.unpause.connect(_on_unpause)
+	player_instance.unpause.connect(_on_pause_menu_game_resume)
 	$Network.add_child(player_instance)
 	
 func _on_pause():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-	var pause_res:Resource = load("res://ui/pause_menu.tscn")
-	var pause_instance = pause_res.instantiate()
-	$HUD.add_child(pause_instance)
+	$HUD/PauseMenu.visible = true	
 	
-	pause_instance.game_resume.connect(_on_unpause)
-	
-func _on_unpause():
+func _on_pause_menu_game_resume():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	for x in $HUD.get_children():
-		x.queue_free()
+	$HUD/PauseMenu.visible = false
 
 func _on_hud_game_quit():
 	get_tree().quit()
 
 func _on_hud_game_start():
-	for x in $Network.get_children() + $HUD.get_children():
+	for x in $Network.get_children():
 		x.queue_free()
 
 	var peer = ENetMultiplayerPeer.new()
@@ -45,15 +39,18 @@ func _on_hud_game_start():
 	multiplayer.multiplayer_peer = peer
 
 	load_level("res://levels/level_01.tscn")
+
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$HUD/MainMenu.visible = false
 	$Crosshair.visible = true
 	
 func _on_hud_game_join():
-	for x in $Network.get_children() + $HUD.get_children():
+	for x in $Network.get_children():
 		x.queue_free()
-	$Crosshair.visible = true
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$HUD/MainMenu.visible = false
+	$Crosshair.visible = true
 
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client("127.0.0.1", PORT)
