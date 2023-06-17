@@ -12,6 +12,7 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_sensitivity = ProjectSettings.get_setting("player/look_sensitivity")
 var friction:float = ProjectSettings.get_setting("player/friction")
+var reach:float = ProjectSettings.get_setting("player/reach")
 
 signal pause
 signal unpause
@@ -53,7 +54,7 @@ func _input(event):
 	if event.is_action_pressed("activate"):
 		var space = get_world_3d().direct_space_state
 		var query = PhysicsRayQueryParameters3D.create($Camera3D.global_position,
-			$Camera3D.global_position - $Camera3D.global_transform.basis.z * 100)
+			$Camera3D.global_position - $Camera3D.global_transform.basis.z * reach)
 		var collision = space.intersect_ray(query)
 		if collision:
 			if collision.collider.has_method("activate"):
