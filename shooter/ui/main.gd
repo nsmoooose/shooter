@@ -36,7 +36,6 @@ func _on_hud_game_quit():
 func _on_hud_game_start():
 	for x in $Network.get_children() + $HUD.get_children():
 		x.queue_free()
-	$Camera3D.queue_free()
 
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT)
@@ -52,7 +51,6 @@ func _on_hud_game_start():
 func _on_hud_game_join():
 	for x in $Network.get_children() + $HUD.get_children():
 		x.queue_free()
-	$Camera3D.queue_free()
 	$Crosshair.visible = true
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

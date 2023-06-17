@@ -16,6 +16,9 @@ var friction:float = ProjectSettings.get_setting("player/friction")
 signal pause
 signal unpause
 
+func _ready():
+	camera.make_current()
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
