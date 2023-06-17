@@ -47,11 +47,13 @@ func _on_hud_game_start():
 
 	load_level("res://levels/level_01.tscn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$Crosshair.visible = true
 	
 func _on_hud_game_join():
 	for x in $Network.get_children() + $HUD.get_children():
 		x.queue_free()
 	$Camera3D.queue_free()
+	$Crosshair.visible = true
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

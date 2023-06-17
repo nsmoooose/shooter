@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=5 format=3 uid="uid://dvikwj25yuwvv"]
 
 [ext_resource type="Script" path="res://ui/main.gd" id="1_qa5fr"]
 [ext_resource type="PackedScene" uid="uid://s0hqcqgwpxn2" path="res://ui/main_menu.tscn" id="1_tvi0x"]
 [ext_resource type="PackedScene" uid="uid://cy4qll45yo1dm" path="res://levels/level_01.tscn" id="2_4gtf4"]
+[ext_resource type="PackedScene" uid="uid://cjnuk8qic6mb" path="res://ui/crosshair.tscn" id="4_o7drv"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_qa5fr")
@@ -21,6 +22,9 @@ transform = Transform3D(0.924785, -0.380489, 0, 0.380489, 0.924785, 0, 0, 0, 1, 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://levels/level_01.tscn", "res://player.tscn")
 spawn_path = NodePath("../Network")
+
+[node name="Crosshair" parent="." instance=ExtResource("4_o7drv")]
+visible = false
 
 [connection signal="game_join" from="HUD/MainMenu" to="." method="_on_hud_game_join"]
 [connection signal="game_quit" from="HUD/MainMenu" to="." method="_on_hud_game_quit"]
