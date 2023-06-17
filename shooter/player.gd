@@ -3,14 +3,14 @@ extends CharacterBody3D
 # https://www.youtube.com/watch?v=77Tsd0OuPc8
 # https://github.com/devloglogan/MultiplayerFPSTutorial/blob/main/Player.gd
 
-@export var speed = 7.0
-@export var jump_velocity = 4.5
+@export var speed:float = 7.0
+@export var jump_velocity:float = 4.5
 
 @onready var camera:Camera3D = $Camera3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var look_sensitivity = ProjectSettings.get_setting("player/look_sensitivity")
+var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var look_sensitivity:float = ProjectSettings.get_setting("player/look_sensitivity")
 var friction:float = ProjectSettings.get_setting("player/friction")
 var reach:float = ProjectSettings.get_setting("player/reach")
 
