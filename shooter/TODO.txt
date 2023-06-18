@@ -4,6 +4,14 @@ Tutorial on how to start:
   https://kidscancode.org/godot_recipes/4.x/
   https://godotengine.org/article/multiplayer-in-godot-4-0-scene-replication/
 
+  Multiple addons and shaders that can be interesting to see
+  https://stayathomedev.com/
+
+  # Full FPS tutorial quick and good!
+  https://www.youtube.com/watch?v=n8D3vEx7NAE
+  https://github.com/devloglogan/MultiplayerFPSTutorial
+
+
 * Light switch
 ** Toggle animation of the switch
 ** Store state of activated or not

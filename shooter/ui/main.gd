@@ -9,13 +9,7 @@ func load_level(level_name: String):
 	var scene:Resource = load(level_name)
 	var instance:Node3D = scene.instantiate()
 	$Network.add_child(instance)
-	
-	var player:Resource = load("res://player.tscn")
-	var player_instance = player.instantiate()
-	player_instance.pause.connect(_on_pause)
-	player_instance.unpause.connect(_on_pause_menu_game_resume)
-	$Network.add_child(player_instance)
-	
+
 func _on_pause():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$HUD/PauseMenu.visible = true	
@@ -59,3 +53,11 @@ func _on_hud_game_join():
 		return
 
 	multiplayer.multiplayer_peer = peer
+
+func _process(_delta):
+	if !$HUD/MainMenu.visible and Input.is_action_just_pressed("ui_cancel"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			_on_pause_menu_game_resume()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			$HUD/PauseMenu.visible = true	

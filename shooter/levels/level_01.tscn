@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=16 format=3 uid="uid://cy4qll45yo1dm"]
 
 [ext_resource type="PackedScene" uid="uid://dlp8270waaflw" path="res://objects/lightpost_01.tscn" id="1_spt8l"]
 [ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_7ukr1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://vu4prd2aicbt" path="res://objects/tree_03.tscn" id="9_uw4tw"]
 [ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="10_q7v2t"]
 [ext_resource type="PackedScene" uid="uid://cw36q4ow5tmir" path="res://objects/garden_post_01.tscn" id="10_tjrf5"]
+[ext_resource type="Script" path="res://levels/level.gd" id="12_o7r4e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_668kc"]
 
@@ -30,6 +31,7 @@ sdfgi_enabled = true
 sdfgi_use_occlusion = true
 
 [node name="Level" type="Node3D"]
+script = ExtResource("12_o7r4e")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
@@ -288,46 +290,53 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.419
 [node name="Post 11" parent="Posts" instance=ExtResource("3_nnlce")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, -0.861716)
 
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="Tree 01" parent="Node3D" instance=ExtResource("5_n2v67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
-
-[node name="Tree 02" parent="Node3D" instance=ExtResource("4_tpchf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
-
-[node name="Tree 12" parent="Node3D" instance=ExtResource("4_tpchf")]
-transform = Transform3D(0.32063, 0, -0.947205, 0, 1, 0, 0.947205, 0, 0.32063, 3.61881, 0, -7.0453)
-
-[node name="Tree 03" parent="Node3D" instance=ExtResource("4_tpchf")]
-transform = Transform3D(0.817363, -0.044683, -0.574388, 0.134173, 0.984338, 0.114356, 0.560282, -0.170538, 0.810556, 9, 0, 5.47938)
-
-[node name="Tree 04" parent="Node3D" instance=ExtResource("9_uw4tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 11)
-
-[node name="Tree 05" parent="Node3D" instance=ExtResource("10_q7v2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54354, 0, 9.33032)
-
-[node name="Tree 06" parent="Node3D" instance=ExtResource("10_q7v2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15962, 0, 7.63694)
-
-[node name="Tree 07" parent="Node3D" instance=ExtResource("10_q7v2t")]
-transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 8.47948, 0, -5.43975)
-
-[node name="Tree 08" parent="Node3D" instance=ExtResource("10_q7v2t")]
-transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 6.46624, 0, -6.86971)
-
-[node name="Tree 09" parent="Node3D" instance=ExtResource("10_q7v2t")]
-transform = Transform3D(0.0829474, 0, -0.996554, 0, 1, 0, 0.996554, 0, 0.0829474, -4.69128, 0, -6.86971)
-
-[node name="Tree 10" parent="Node3D" instance=ExtResource("10_q7v2t")]
-transform = Transform3D(-0.897156, 0.223709, -0.380875, 0.205921, 0.974656, 0.087421, 0.390779, 0, -0.920484, -2.37699, 0, -7.52825)
-
-[node name="Tree 11" parent="Node3D" instance=ExtResource("10_q7v2t")]
-transform = Transform3D(-0.808884, 0, -0.587969, 0, 1, 0, 0.587969, 0, -0.808884, 1.2732, 0, -6.75682)
-
-[node name="Garden post 01" parent="." instance=ExtResource("10_tjrf5")]
+[node name="Garden post 01" parent="Posts" instance=ExtResource("10_tjrf5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.67554, 0.0133321, 8.82317)
 
-[node name="Garden post 02" parent="." instance=ExtResource("10_tjrf5")]
+[node name="Garden post 02" parent="Posts" instance=ExtResource("10_tjrf5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.19559, 0.0133321, 8.82317)
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree 01" parent="Trees" instance=ExtResource("5_n2v67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
+
+[node name="Tree 02" parent="Trees" instance=ExtResource("4_tpchf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
+
+[node name="Tree 12" parent="Trees" instance=ExtResource("4_tpchf")]
+transform = Transform3D(0.32063, 0, -0.947205, 0, 1, 0, 0.947205, 0, 0.32063, 3.61881, 0, -7.0453)
+
+[node name="Tree 03" parent="Trees" instance=ExtResource("4_tpchf")]
+transform = Transform3D(0.817363, -0.044683, -0.574388, 0.134173, 0.984338, 0.114356, 0.560282, -0.170538, 0.810556, 9, 0, 5.47938)
+
+[node name="Tree 04" parent="Trees" instance=ExtResource("9_uw4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 11)
+
+[node name="Tree 05" parent="Trees" instance=ExtResource("10_q7v2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54354, 0, 9.33032)
+
+[node name="Tree 06" parent="Trees" instance=ExtResource("10_q7v2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15962, 0, 7.63694)
+
+[node name="Tree 07" parent="Trees" instance=ExtResource("10_q7v2t")]
+transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 8.47948, 0, -5.43975)
+
+[node name="Tree 08" parent="Trees" instance=ExtResource("10_q7v2t")]
+transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 6.46624, 0, -6.86971)
+
+[node name="Tree 09" parent="Trees" instance=ExtResource("10_q7v2t")]
+transform = Transform3D(0.0829474, 0, -0.996554, 0, 1, 0, 0.996554, 0, 0.0829474, -4.69128, 0, -6.86971)
+
+[node name="Tree 10" parent="Trees" instance=ExtResource("10_q7v2t")]
+transform = Transform3D(-0.897156, 0.223709, -0.380875, 0.205921, 0.974656, 0.087421, 0.390779, 0, -0.920484, -2.37699, 0, -7.52825)
+
+[node name="Tree 11" parent="Trees" instance=ExtResource("10_q7v2t")]
+transform = Transform3D(-0.808884, 0, -0.587969, 0, 1, 0, 0.587969, 0, -0.808884, 1.2732, 0, -6.75682)
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("../Players")
+spawn_limit = 8

@@ -7,6 +7,13 @@ extends CharacterBody3D
 @export var jump_velocity:float = 4.5
 
 @onready var camera:Camera3D = $Camera3D
+@onready var input = $PlayerInput
+
+@export var player:int = 1:
+	set(id):
+		player = id
+		# Give authority over the player input to the appropriate peer.
+		$PlayerInput.set_multiplayer_authority(id)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -14,13 +21,25 @@ var look_sensitivity:float = ProjectSettings.get_setting("player/look_sensitivit
 var friction:float = ProjectSettings.get_setting("player/friction")
 var reach:float = ProjectSettings.get_setting("player/reach")
 
-signal pause
-signal unpause
+
+func _enter_tree():
+	set_multiplayer_authority(str(name).to_int())
+
 
 func _ready():
+	if not is_multiplayer_authority():
+		return
+
 	camera.make_current()
+		
+	# Only process for the local player.
+	set_process(get_multiplayer_authority() == multiplayer.get_unique_id())
+
 
 func _physics_process(delta):
+	if not is_multiplayer_authority():
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -28,8 +47,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (transform.basis * Vector3(input.direction.x, 0, input.direction.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -39,13 +57,11 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			unpause.emit()
-		else:
-			pause.emit()
-		
-func _input(event):
+
+func _unhandled_input(event):
+	if not is_multiplayer_authority():
+		return
+
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * look_sensitivity)
 		camera.rotate_x(-event.relative.y * look_sensitivity)

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=5 format=3 uid="uid://dvikwj25yuwvv"]
 
 [ext_resource type="Script" path="res://ui/main.gd" id="1_qa5fr"]
 [ext_resource type="PackedScene" uid="uid://s0hqcqgwpxn2" path="res://ui/main_menu.tscn" id="1_tvi0x"]
-[ext_resource type="PackedScene" uid="uid://cy4qll45yo1dm" path="res://levels/level_01.tscn" id="2_4gtf4"]
 [ext_resource type="PackedScene" uid="uid://5sle6aa6xeea" path="res://ui/pause_menu.tscn" id="3_ykp1g"]
 [ext_resource type="PackedScene" uid="uid://cjnuk8qic6mb" path="res://ui/crosshair.tscn" id="4_o7drv"]
 
@@ -16,15 +15,10 @@ script = ExtResource("1_qa5fr")
 [node name="PauseMenu" parent="HUD" instance=ExtResource("3_ykp1g")]
 visible = false
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.924785, -0.380489, 0, 0.380489, 0.924785, 0, 0, 0, 1, 0, 2.07832, 14.3606)
-
 [node name="Network" type="Node3D" parent="."]
 
-[node name="level_01" parent="Network" instance=ExtResource("2_4gtf4")]
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://levels/level_01.tscn", "res://player.tscn")
+[node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://levels/level_01.tscn")
 spawn_path = NodePath("../Network")
 
 [node name="Crosshair" parent="." instance=ExtResource("4_o7drv")]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://crnm1fnqtjppg"]
+[gd_scene load_steps=8 format=3 uid="uid://crnm1fnqtjppg"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_q25tv"]
 [ext_resource type="PackedScene" uid="uid://gsash2mghfw6" path="res://objects/weapons/knife_01.tscn" id="2_38xgb"]
+[ext_resource type="Script" path="res://player_input.gd" id="3_5nup7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yvcf8"]
 radius = 0.4
@@ -18,9 +19,14 @@ properties/0/sync = true
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/sync = true
-properties/2/path = NodePath("Camera3D:rotation")
+properties/2/path = NodePath(".:player")
 properties/2/spawn = true
-properties/2/sync = true
+properties/2/sync = false
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_r2411"]
+properties/0/path = NodePath("PlayerInput:direction")
+properties/0/spawn = true
+properties/0/sync = true
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_q25tv")
@@ -43,3 +49,7 @@ transform = Transform3D(0.733952, -0.0879407, -0.673485, -0.35077, 0.800035, -0.
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_3hfid")
+
+[node name="PlayerInput" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_r2411")
+script = ExtResource("3_5nup7")
