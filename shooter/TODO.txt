@@ -11,6 +11,12 @@ Tutorial on how to start:
   https://www.youtube.com/watch?v=n8D3vEx7NAE
   https://github.com/devloglogan/MultiplayerFPSTutorial
 
+  # Day and night cycle
+  https://www.youtube.com/watch?v=1Ibr3ENAOrE
+
+  # Day and night cycle with nice shaders!
+  https://github.com/krzmig/godot-simple-sky-project/tree/main
+
 
 * Light switch
 ** Toggle animation of the switch

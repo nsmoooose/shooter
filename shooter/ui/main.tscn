@@ -18,7 +18,7 @@ visible = false
 [node name="Network" type="Node3D" parent="."]
 
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://levels/level_01.tscn")
+_spawnable_scenes = PackedStringArray("res://maps/garden_by_day.tscn")
 spawn_path = NodePath("../Network")
 
 [node name="Crosshair" parent="." instance=ExtResource("4_o7drv")]

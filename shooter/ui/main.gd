@@ -32,7 +32,7 @@ func _on_hud_game_start():
 		return
 	multiplayer.multiplayer_peer = peer
 
-	load_level("res://levels/level_01.tscn")
+	load_level("res://maps/garden_by_night.tscn")
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$HUD/MainMenu.visible = false

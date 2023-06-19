@@ -1,337 +1,317 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=13 format=3 uid="uid://cy4qll45yo1dm"]
 
-[ext_resource type="PackedScene" uid="uid://dlp8270waaflw" path="res://objects/lightpost_01.tscn" id="1_spt8l"]
-[ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_7ukr1"]
-[ext_resource type="PackedScene" uid="uid://6spsc6u383wc" path="res://objects/light_switch_01.tscn" id="3_1j1pb"]
-[ext_resource type="PackedScene" uid="uid://j3qet8ao8ujn" path="res://objects/post_01.tscn" id="3_nnlce"]
-[ext_resource type="PackedScene" uid="uid://0ymjexola3ib" path="res://objects/tree_02.tscn" id="4_tpchf"]
-[ext_resource type="PackedScene" uid="uid://dfrdx6no3f67n" path="res://objects/tree_01.tscn" id="5_n2v67"]
-[ext_resource type="PackedScene" uid="uid://qoa31tfvc41d" path="res://objects/slab_01.tscn" id="6_guxyt"]
-[ext_resource type="PackedScene" uid="uid://gojlvqopisd4" path="res://objects/ground_30m.tscn" id="7_vi4js"]
-[ext_resource type="PackedScene" uid="uid://vu4prd2aicbt" path="res://objects/tree_03.tscn" id="9_uw4tw"]
-[ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="10_q7v2t"]
-[ext_resource type="PackedScene" uid="uid://cw36q4ow5tmir" path="res://objects/garden_post_01.tscn" id="10_tjrf5"]
-[ext_resource type="Script" path="res://levels/level.gd" id="12_o7r4e"]
+[ext_resource type="Script" path="res://maps/level.gd" id="1_4iq7w"]
+[ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_y1kq3"]
+[ext_resource type="PackedScene" uid="uid://6spsc6u383wc" path="res://objects/light_switch_01.tscn" id="3_677k8"]
+[ext_resource type="PackedScene" uid="uid://dlp8270waaflw" path="res://objects/lightpost_01.tscn" id="4_76d5i"]
+[ext_resource type="PackedScene" uid="uid://qoa31tfvc41d" path="res://objects/slab_01.tscn" id="5_4ai6i"]
+[ext_resource type="PackedScene" uid="uid://j3qet8ao8ujn" path="res://objects/post_01.tscn" id="6_t0iuk"]
+[ext_resource type="PackedScene" uid="uid://gojlvqopisd4" path="res://objects/ground_30m.tscn" id="7_l2yu8"]
+[ext_resource type="PackedScene" uid="uid://cw36q4ow5tmir" path="res://objects/garden_post_01.tscn" id="8_qlr4u"]
+[ext_resource type="PackedScene" uid="uid://dfrdx6no3f67n" path="res://objects/tree_01.tscn" id="9_82i64"]
+[ext_resource type="PackedScene" uid="uid://0ymjexola3ib" path="res://objects/tree_02.tscn" id="10_7r5m4"]
+[ext_resource type="PackedScene" uid="uid://vu4prd2aicbt" path="res://objects/tree_03.tscn" id="11_tod5f"]
+[ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="12_dq4jf"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_668kc"]
-
-[sub_resource type="Sky" id="Sky_cgrqr"]
-sky_material = SubResource("ProceduralSkyMaterial_668kc")
-
-[sub_resource type="Environment" id="Environment_njyk6"]
-background_mode = 2
-sky = SubResource("Sky_cgrqr")
-ambient_light_source = 3
-ambient_light_color = Color(0.803922, 0.847059, 0.713726, 1)
-ambient_light_energy = 10.02
-tonemap_mode = 3
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-
-[node name="Level" type="Node3D"]
-script = ExtResource("12_o7r4e")
+[node name="Garden" type="Node3D"]
+script = ExtResource("1_4iq7w")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
 [node name="start" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_njyk6")
-
-[node name="Fountain foundation 01" parent="." instance=ExtResource("2_7ukr1")]
+[node name="Fountain foundation 01" parent="." instance=ExtResource("2_y1kq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
 
-[node name="light_switch_01" parent="." node_paths=PackedStringArray("lamp") instance=ExtResource("3_1j1pb")]
+[node name="light_switch_01" parent="." node_paths=PackedStringArray("lamp") instance=ExtResource("3_677k8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9253, 1.64832, 0)
 lamp = NodePath("../Lightposts")
 
 [node name="Lightposts" type="Node3D" parent="."]
 
-[node name="Lightpost 01" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 01" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73084, 0, 9.88214)
 
-[node name="Lightpost 02" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 02" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02024, 0, -4.64003)
 
-[node name="Lightpost 03" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 03" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3754, 0, -4.64003)
 
-[node name="Lightpost 04" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 04" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89302, 0, 7.59204)
 
-[node name="Lightpost 05" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 05" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42993, 0, 7.59204)
 
-[node name="Lightpost 06" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 06" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13884, 0, 9.87647)
 
-[node name="Lightpost 07" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 07" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.6408, 0, 3.17893)
 
-[node name="Lightpost 08" parent="Lightposts" instance=ExtResource("1_spt8l")]
+[node name="Lightpost 08" parent="Lightposts" instance=ExtResource("4_76d5i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.67812, 0, -0.304723)
 
 [node name="Slabs around fountain" type="Node3D" parent="."]
 
-[node name="Slab 01" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 01" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.38852, 0, 8.66488)
 
-[node name="Slab 09" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 09" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.13058, 0, 7.95331)
 
-[node name="Slab 10" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 10" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.1471, 0, 7.95331)
 
-[node name="Slab 11" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 11" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.16363, 0, 7.95331)
 
-[node name="Slab 12" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 12" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.18016, 0, 7.95331)
 
-[node name="Slab 23" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 23" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.53971, 0, 3.52343)
 
-[node name="Slab 26" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 26" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.57606, 0, -0.73019)
 
-[node name="Slab 27" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 27" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.6067, 0, -0.73019)
 
-[node name="Slab 28" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 28" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.62577, 0, -0.73019)
 
-[node name="Slab 29" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 29" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.6564, 0, -0.73019)
 
-[node name="Slab 24" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 24" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.53622, 0, 3.51472)
 
-[node name="Slab 30" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 30" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.55528, 0, 3.51472)
 
-[node name="Slab 31" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 31" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.5743, 0, 3.51472)
 
-[node name="Slab 13" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 13" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.67631, 0, 7.95331)
 
-[node name="Slab 14" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 14" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.69284, 0, 7.95331)
 
-[node name="Slab 15" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 15" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.70936, 0, 7.95331)
 
-[node name="Slab 16" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 16" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.72589, 0, 7.95331)
 
-[node name="Slab 43" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 43" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.67631, 0, -5.21388)
 
-[node name="Slab 44" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 44" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, -1.03664e-08, 0.992945, 0.118577, 8.6806e-08, 0.118577, -0.992945, -3.69284, 0, -5.21388)
 
-[node name="Slab 45" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 45" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, -3.82095e-09, 0.999044, 0.0437066, 8.73393e-08, 0.0437066, -0.999044, -4.70936, 0, -5.21388)
 
-[node name="Slab 46" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 46" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.72589, 0, -5.21388)
 
-[node name="Slab 02" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 02" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.38852, 0, 9.70173)
 
-[node name="Slab 03" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 03" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.38852, 0, 10.7386)
 
-[node name="Slab 04" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 04" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.38852, 0, 11.7754)
 
-[node name="Slab 05" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 05" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.93424, 0, 8.6852)
 
-[node name="Slab 17" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 17" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 7.36372)
 
-[node name="Slab 21" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 21" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.82989, 0, 7.36372)
 
-[node name="Slab 22" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 22" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.82989, 0, 6.34137)
 
-[node name="Slab 55" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 55" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.82989, 0, 5.30511)
 
-[node name="Slab 56" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 56" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.82989, 0, 4.28276)
 
-[node name="Slab 25" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 25" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86624, 0, -1.43647)
 
-[node name="Slab 32" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 32" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86624, 0, -2.46712)
 
-[node name="Slab 33" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 33" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86624, 0, -3.49777)
 
-[node name="Slab 34" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 34" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86624, 0, -4.56315)
 
-[node name="Slab 18" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 18" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 6.33703)
 
-[node name="Slab 19" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 19" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 5.27984)
 
-[node name="Slab 20" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 20" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 4.22878)
 
-[node name="Slab 35" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 35" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 2.82756)
 
-[node name="Slab 37" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 37" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 0.828434)
 
-[node name="Slab 38" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 38" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, -0.172406)
 
-[node name="Slab 36" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 36" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, 1.82911)
 
-[node name="Post 12" parent="Slabs around fountain" instance=ExtResource("3_nnlce")]
+[node name="Post 12" parent="Slabs around fountain" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(0.0600729, 0, 0.998194, 0, 1, 0, -0.998194, 0, 0.0600729, -6.41918, 0, -5.25698)
 
-[node name="Post 13" parent="Slabs around fountain" instance=ExtResource("3_nnlce")]
+[node name="Post 13" parent="Slabs around fountain" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.97817, 0, -5.25698)
 
-[node name="Slab 47" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 47" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.75233, 0, -5.21388)
 
-[node name="Slab 48" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 48" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.735801, 0, -5.21388)
 
-[node name="Slab 49" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 49" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.280719, 0, -5.21388)
 
-[node name="Slab 50" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 50" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.29725, 0, -5.21388)
 
-[node name="Post 14" parent="Slabs around fountain" instance=ExtResource("3_nnlce")]
+[node name="Post 14" parent="Slabs around fountain" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.45047, 0, -5.25698)
 
-[node name="Slab 51" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 51" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.20531, 0, -5.21388)
 
-[node name="Slab 52" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 52" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.18878, 0, -5.21388)
 
-[node name="Slab 53" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 53" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.17226, 0, -5.21388)
 
-[node name="Slab 54" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 54" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.15573, 0, -5.21388)
 
-[node name="Post 15" parent="Slabs around fountain" instance=ExtResource("3_nnlce")]
+[node name="Post 15" parent="Slabs around fountain" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.90344, 0, -5.25698)
 
-[node name="Slab 39" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 39" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0.0035081, 0.999994, 1.53344e-10, -0.999994, 0.0035081, -4.37111e-08, -6.35613, 0, -1.5677)
 
-[node name="Slab 40" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 40" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(0.00954676, 0.0459014, 0.9989, 2.00651e-09, 0.998946, -0.0459035, -0.999954, 0.000438232, 0.0095367, -6.35613, 0, -3.56683)
 
-[node name="Slab 41" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 41" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.36919e-08, -0.029893, 0.999553, -1.30667e-09, 0.999553, 0.029893, -1, 0, -4.37114e-08, -6.35613, 0, -4.56767)
 
-[node name="Slab 42" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 42" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35613, 0, -2.56616)
 
-[node name="Slab 06" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 06" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.93424, 0, 9.72206)
 
-[node name="Slab 07" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 07" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.93424, 0, 10.7488)
 
-[node name="Slab 08" parent="Slabs around fountain" instance=ExtResource("6_guxyt")]
+[node name="Slab 08" parent="Slabs around fountain" instance=ExtResource("5_4ai6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.93424, 0, 11.7551)
 
-[node name="Ground 30M" parent="." instance=ExtResource("7_vi4js")]
+[node name="Ground 30M" parent="." instance=ExtResource("7_l2yu8")]
 
 [node name="Posts" type="Node3D" parent="."]
 
-[node name="Post 01" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 01" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45848, 0, 7.98657)
 
-[node name="Post 02" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 02" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98757, 0, 7.98832)
 
-[node name="Post 03" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 03" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86021, 0, -0.763994)
 
-[node name="Post 07" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 07" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.3186, 0, -0.763994)
 
-[node name="Post 04" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 04" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.85876, 0, 3.58537)
 
-[node name="Post 08" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 08" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.2477, 0, 3.58537)
 
-[node name="Post 05" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 05" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86934, 0, 8.02632)
 
-[node name="Post 06" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 06" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, 8.02632)
 
-[node name="Post 10" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 10" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, 3.52408)
 
-[node name="Post 11" parent="Posts" instance=ExtResource("3_nnlce")]
+[node name="Post 11" parent="Posts" instance=ExtResource("6_t0iuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.41918, 0, -0.861716)
 
-[node name="Garden post 01" parent="Posts" instance=ExtResource("10_tjrf5")]
+[node name="Garden post 01" parent="Posts" instance=ExtResource("8_qlr4u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.67554, 0.0133321, 8.82317)
 
-[node name="Garden post 02" parent="Posts" instance=ExtResource("10_tjrf5")]
+[node name="Garden post 02" parent="Posts" instance=ExtResource("8_qlr4u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.19559, 0.0133321, 8.82317)
 
 [node name="Trees" type="Node3D" parent="."]
 
-[node name="Tree 01" parent="Trees" instance=ExtResource("5_n2v67")]
+[node name="Tree 01" parent="Trees" instance=ExtResource("9_82i64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
 
-[node name="Tree 02" parent="Trees" instance=ExtResource("4_tpchf")]
+[node name="Tree 02" parent="Trees" instance=ExtResource("10_7r5m4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
 
-[node name="Tree 12" parent="Trees" instance=ExtResource("4_tpchf")]
+[node name="Tree 12" parent="Trees" instance=ExtResource("10_7r5m4")]
 transform = Transform3D(0.32063, 0, -0.947205, 0, 1, 0, 0.947205, 0, 0.32063, 3.61881, 0, -7.0453)
 
-[node name="Tree 03" parent="Trees" instance=ExtResource("4_tpchf")]
+[node name="Tree 03" parent="Trees" instance=ExtResource("10_7r5m4")]
 transform = Transform3D(0.817363, -0.044683, -0.574388, 0.134173, 0.984338, 0.114356, 0.560282, -0.170538, 0.810556, 9, 0, 5.47938)
 
-[node name="Tree 04" parent="Trees" instance=ExtResource("9_uw4tw")]
+[node name="Tree 04" parent="Trees" instance=ExtResource("11_tod5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 11)
 
-[node name="Tree 05" parent="Trees" instance=ExtResource("10_q7v2t")]
+[node name="Tree 05" parent="Trees" instance=ExtResource("12_dq4jf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54354, 0, 9.33032)
 
-[node name="Tree 06" parent="Trees" instance=ExtResource("10_q7v2t")]
+[node name="Tree 06" parent="Trees" instance=ExtResource("12_dq4jf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15962, 0, 7.63694)
 
-[node name="Tree 07" parent="Trees" instance=ExtResource("10_q7v2t")]
+[node name="Tree 07" parent="Trees" instance=ExtResource("12_dq4jf")]
 transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 8.47948, 0, -5.43975)
 
-[node name="Tree 08" parent="Trees" instance=ExtResource("10_q7v2t")]
+[node name="Tree 08" parent="Trees" instance=ExtResource("12_dq4jf")]
 transform = Transform3D(0.843588, 0, -0.53699, 0, 1, 0, 0.53699, 0, 0.843588, 6.46624, 0, -6.86971)
 
-[node name="Tree 09" parent="Trees" instance=ExtResource("10_q7v2t")]
+[node name="Tree 09" parent="Trees" instance=ExtResource("12_dq4jf")]
 transform = Transform3D(0.0829474, 0, -0.996554, 0, 1, 0, 0.996554, 0, 0.0829474, -4.69128, 0, -6.86971)
 
-[node name="Tree 10" parent="Trees" instance=ExtResource("10_q7v2t")]
+[node name="Tree 10" parent="Trees" instance=ExtResource("12_dq4jf")]
 transform = Transform3D(-0.897156, 0.223709, -0.380875, 0.205921, 0.974656, 0.087421, 0.390779, 0, -0.920484, -2.37699, 0, -7.52825)
 
-[node name="Tree 11" parent="Trees" instance=ExtResource("10_q7v2t")]
+[node name="Tree 11" parent="Trees" instance=ExtResource("12_dq4jf")]
 transform = Transform3D(-0.808884, 0, -0.587969, 0, 1, 0, 0.587969, 0, -0.808884, 1.2732, 0, -6.75682)
 
 [node name="Players" type="Node3D" parent="."]
