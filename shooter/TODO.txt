@@ -17,6 +17,10 @@ Tutorial on how to start:
   # Day and night cycle with nice shaders!
   https://github.com/krzmig/godot-simple-sky-project/tree/main
 
+  # Nice tree
+  https://github.com/AbhijitL/Godot4StylizedTree
+
+
 
 * Light switch
 ** Toggle animation of the switch
