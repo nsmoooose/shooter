@@ -9,9 +9,9 @@ const HOURS_IN_DAY: float = 24.0
 const DAYS_IN_YEAR: int = 365
 
 ## For simplify, a local time, I skip totally a longitude
-@export_range(0.0, HOURS_IN_DAY, 0.0001) var day_time: float = 0.0:
+@export_range(0.0, HOURS_IN_DAY, 0.0001) var time_of_day: float = 0.0:
 	set(value):
-		day_time = value
+		time_of_day = value
 		_update()
 
 ## Latitude of your position
@@ -56,10 +56,10 @@ const DAYS_IN_YEAR: int = 365
 		clouds_weight = value
 		_update_clouds()
 
-## If on, the sum of day_of_year and day_time will be passed to the sky shadader to use instead of TIME from the engine
-@export var use_day_time_for_shader: bool = false:
+## If on, the sum of day_of_year and time_of_day will be passed to the sky shadader to use instead of TIME from the engine
+@export var use_time_of_day_for_shader: bool = false:
 	set(value):
-		use_day_time_for_shader = value
+		use_time_of_day_for_shader = value
 		_update_shader()
 
 @onready var environment: WorldEnvironment = $WorldEnvironment
@@ -85,7 +85,7 @@ func _update() -> void:
 
 func _update_sun() -> void:
 	if is_instance_valid(sun):
-		var day_progress: float = day_time / HOURS_IN_DAY
+		var day_progress: float = time_of_day / HOURS_IN_DAY
 		# Sunset and sunrise
 		sun.rotation.x = (day_progress * 2.0 - 0.5) * -PI
 		# 193 is the number of days from the summer solstice to the end of the year.
@@ -100,7 +100,7 @@ func _update_sun() -> void:
 		sun.light_energy = smoothstep(-0.05, 0.1, sun_direction.y) * sun_base_enegry
 
 func _update_moon() -> void:
-	var day_progress: float = day_time / HOURS_IN_DAY
+	var day_progress: float = time_of_day / HOURS_IN_DAY
 	if is_instance_valid(moon):
 		# Progress of the moon's orbital rotation in days
 		var moon_orbit_progress: float = (fmod(float(day_of_year), moon_orbital_period) + day_progress) / moon_orbital_period
@@ -123,5 +123,5 @@ func _update_shader() -> void:
 	if is_instance_valid(environment):
 		environment.environment.sky.sky_material.set_shader_parameter(
 			"overwritten_time",
-			(day_of_year * HOURS_IN_DAY + day_time) * 100.0 if use_day_time_for_shader else 0.0
+			(day_of_year * HOURS_IN_DAY + time_of_day) * 100.0 if use_time_of_day_for_shader else 0.0
 		)

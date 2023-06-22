@@ -8,3 +8,4 @@
 [node name="Garden" parent="." instance=ExtResource("1_0nkcv")]
 
 [node name="Environment" parent="." instance=ExtResource("2_el2uf")]
+time_of_day = 10.0267
