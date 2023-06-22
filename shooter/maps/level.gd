@@ -1,6 +1,5 @@
 extends Node3D
 
-const SPAWN_RANDOM := 5.0
 
 func _ready():
 	# We only need to spawn players on the server.
@@ -27,14 +26,15 @@ func _exit_tree():
 
 
 func add_player(id: int):
+	var nodes:Array[Node] = get_tree().get_nodes_in_group("spawnpoints")
+	var pos = nodes[randi() % nodes.size()].global_position
+
 	var character = preload("res://player.tscn").instantiate()
-	# Set player id.
 	character.player = id
-	# Randomize character position.
-	var pos := Vector2.from_angle(randf() * 2 * PI)
-	character.position = Vector3(pos.x * SPAWN_RANDOM * randf(), 0, pos.y * SPAWN_RANDOM * randf())
 	character.name = str(id)
 	$Players.add_child(character, true)
+
+	character.global_position = pos
 
 
 func del_player(id: int):
