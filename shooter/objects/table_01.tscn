@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://irarcpfepvcb"]
+
+[ext_resource type="PackedScene" uid="uid://bxb7kefpvtq6a" path="res://objects/table_01.glb" id="1_q7sd4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfb1y"]
+size = Vector3(2, 0.75, 1.2)
+
+[node name="Table 01" type="StaticBody3D"]
+
+[node name="model" parent="." instance=ExtResource("1_q7sd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375466, 0.394637)
+shape = SubResource("BoxShape3D_tfb1y")

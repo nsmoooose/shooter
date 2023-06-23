@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=14 format=3 uid="uid://cy4qll45yo1dm"]
 
 [ext_resource type="Script" path="res://maps/level.gd" id="1_4iq7w"]
 [ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_y1kq3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://0ymjexola3ib" path="res://objects/tree_02.tscn" id="10_7r5m4"]
 [ext_resource type="PackedScene" uid="uid://vu4prd2aicbt" path="res://objects/tree_03.tscn" id="11_tod5f"]
 [ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="12_dq4jf"]
+[ext_resource type="PackedScene" uid="uid://irarcpfepvcb" path="res://objects/table_01.tscn" id="13_kw7tl"]
 
 [node name="Garden" type="Node3D"]
 script = ExtResource("1_4iq7w")
@@ -329,3 +330,6 @@ transform = Transform3D(-0.808884, 0, -0.587969, 0, 1, 0, 0.587969, 0, -0.808884
 _spawnable_scenes = PackedStringArray("res://player.tscn")
 spawn_path = NodePath("../Players")
 spawn_limit = 8
+
+[node name="Table 01" parent="." instance=ExtResource("13_kw7tl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3097, 0, 0)
