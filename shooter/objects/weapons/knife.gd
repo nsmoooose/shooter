@@ -11,3 +11,7 @@ func knife_flip():
 
 func inspect():
 	knife_flip.rpc()
+
+
+func shoot():
+	pass

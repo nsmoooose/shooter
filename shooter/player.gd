@@ -58,6 +58,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func intersect_ray(reach: float):
+	var query = PhysicsRayQueryParameters3D.create(camera.global_position,
+		camera.global_position - camera.global_transform.basis.z * reach)
+	return get_world_3d().direct_space_state.intersect_ray(query)
+
+
 func _unhandled_input(event):
 	if not is_multiplayer_authority():
 		return
@@ -68,13 +74,18 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 	if event.is_action_pressed("activate"):
-		var space = get_world_3d().direct_space_state
-		var query = PhysicsRayQueryParameters3D.create($Camera3D.global_position,
-			$Camera3D.global_position - $Camera3D.global_transform.basis.z * reach)
-		var collision = space.intersect_ray(query)
+		var collision = intersect_ray(reach)
 		if collision:
 			if collision.collider.has_method("activate"):
 				collision.collider.activate()
 
 	if event.is_action_pressed("inspect"):
 		get_node("Camera3D/knife").inspect()
+
+	if event.is_action_pressed("shoot"):
+		get_node("Camera3D/knife").shoot()
+
+		var collision = intersect_ray(reach)
+		if collision:
+			if collision.collider.has_method("activate"):
+				collision.collider.activate()
