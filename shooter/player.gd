@@ -58,9 +58,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func intersect_ray(reach: float):
+func intersect_ray(player_reach: float):
 	var query = PhysicsRayQueryParameters3D.create(camera.global_position,
-		camera.global_position - camera.global_transform.basis.z * reach)
+		camera.global_position - camera.global_transform.basis.z * player_reach)
 	return get_world_3d().direct_space_state.intersect_ray(query)
 
 
