@@ -9,5 +9,5 @@ func knife_flip():
 	anim_player.play("knife_flip")
 
 
-func activate():
+func inspect():
 	knife_flip.rpc()

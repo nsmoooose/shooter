@@ -77,4 +77,4 @@ func _unhandled_input(event):
 				collision.collider.activate()
 
 	if event.is_action_pressed("inspect"):
-		get_node("Camera3D/knife").activate()
+		get_node("Camera3D/knife").inspect()
