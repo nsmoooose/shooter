@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://riglk7h4r76j"]
+
+[ext_resource type="PackedScene" uid="uid://b83iu5f3lk1nu" path="res://objects/eu_pallet.tscn" id="1_itt5g"]
+
+[node name="Stack of pallets" type="Node3D"]
+
+[node name="EUPallet" parent="." instance=ExtResource("1_itt5g")]
+
+[node name="EUPallet2" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(0.999675, 0, -0.0254791, 0, 1, 0, 0.0254791, 0, 0.999675, 0, 0.143, 0)
+
+[node name="EUPallet3" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(0.998288, 0, -0.0584875, 0, 1, 0, 0.0584875, 0, 0.998288, 0, 0.285, 0)
+
+[node name="EUPallet4" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(0.999841, 0, -0.0178363, 0, 1, 0, 0.0178363, 0, 0.999841, 0, 0.429, 0)
+
+[node name="EUPallet5" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.994051, 0, 0.108919, 0, 1, 0, -0.108919, 0, -0.994051, 0, 0.565, 0)
+
+[node name="EUPallet6" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.990953, 0, 0.134211, 0, 1, 0, -0.134211, 0, -0.990953, 0, 0.708, 0)
+
+[node name="EUPallet7" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.985979, 0, 0.166872, 0, 1, 0, -0.166872, 0, -0.985979, 0, 0.85, 0)
+
+[node name="EUPallet8" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.99195, 0, 0.126632, 0, 1, 0, -0.126632, 0, -0.99195, 0, 0.994, 0)
+
+[node name="EUPallet9" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.999983, 0, -0.00586419, 0, 1, 0, 0.00586419, 0, -0.999983, 0, 1.14, 0)
+
+[node name="EUPallet10" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.999175, 0, 0.0406028, 0, 1, 0, -0.0406028, 0, -0.999175, 0, 1.282, 0)
+
+[node name="EUPallet11" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.999909, 0, -0.0135083, 0, 1, 0, 0.0135083, 0, -0.999909, 0, 1.425, 0)
+
+[node name="EUPallet12" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.999983, 0, -0.00586419, 0, 1, 0, 0.00586419, 0, -0.999983, 0, 1.569, 0)
+
+[node name="EUPallet13" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.999175, 0, 0.0406028, 0, 1, 0, -0.0406028, 0, -0.999175, 0, 1.712, 0)
+
+[node name="EUPallet14" parent="." instance=ExtResource("1_itt5g")]
+transform = Transform3D(-0.999909, 0, -0.0135083, 0, 1, 0, 0.0135083, 0, -0.999909, 0, 1.855, 0)

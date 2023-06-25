@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b83iu5f3lk1nu"]
+
+[ext_resource type="PackedScene" uid="uid://cflxbor4e6hv1" path="res://objects/eu_pallet.glb" id="1_gf0s2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apixb"]
+size = Vector3(0.8, 0.144, 1.2)
+
+[node name="EUPallet" type="StaticBody3D"]
+
+[node name="model" parent="." instance=ExtResource("1_gf0s2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.353268, 0.0108811, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0716178, 0)
+shape = SubResource("BoxShape3D_apixb")
