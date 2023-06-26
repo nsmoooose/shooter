@@ -3,20 +3,90 @@
 [ext_resource type="PackedScene" uid="uid://byaems728pvvc" path="res://objects/weapons/knife_01.glb" id="1_fe230"]
 [ext_resource type="Script" path="res://objects/weapons/knife.gd" id="1_j8ps5"]
 
-[sub_resource type="Animation" id="Animation_dd5xj"]
+[sub_resource type="Animation" id="Animation_2gjvr"]
 resource_name = "knife_flip"
-length = 2.0
-tracks/0/type = "rotation_3d"
+length = 1.5
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("model/blade")
+tracks/0/path = NodePath("model/blade:rotation:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 0.292526, 0, 0.956258, 1, 1, 0, 0.998057, 0, 0.0623115, 1.3, 1, 0, 0, 0, 1)
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 1, 0.385755, 0.0942516, 3.08982, 0, -0.901134, 0.0582085, -0.00704002, 3.07574, -0.0619801, 0.00704002, 0, -0.204163, 0, 0, 3.00886, 0.25, 0),
+"times": PackedFloat32Array(0.283718, 0.683718, 0.919549, 1.28372)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("model:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("model:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("model:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("model:rotation:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.0132903, -0.25, 0, 0.25, 0, -0.521758, -0.25, 0, 0.25, 0, 0.477937, -0.25, 0, 0.25, 0, 0.00625019, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.0345849, 0.343189, 0.901869, 1.47651)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("model:rotation:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.231453, -1.42914, 0.407536, -0.25, 0, 0.25, 0, 0, -0.271359, -2.3162, 0.25, 0),
+"times": PackedFloat32Array(0.0345849, 0.609227, 1.47651)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("model:rotation:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6upso"]
 _data = {
-"knife_flip": SubResource("Animation_dd5xj")
+"knife_flip": SubResource("Animation_2gjvr")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_txrw1"]
@@ -27,6 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0566351, 0, 0.0222227)
 script = ExtResource("1_j8ps5")
 
 [node name="model" parent="." instance=ExtResource("1_fe230")]
+transform = Transform3D(1, 0, 0, 0, 0.99998, -0.00625015, 0, 0.00625015, 0.99998, 0, 0, 0)
 
 [node name="blade" parent="model" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10183, 0.0025332, -0.0241764)
