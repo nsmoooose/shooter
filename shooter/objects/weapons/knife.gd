@@ -13,5 +13,10 @@ func inspect():
 	knife_flip.rpc()
 
 
-func shoot():
-	pass
+@rpc("call_local")
+func knife_stab():
+	anim_player.stop()
+	anim_player.play("stab")
+
+func attack():
+	knife_stab.rpc()

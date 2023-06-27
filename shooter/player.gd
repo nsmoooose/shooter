@@ -83,7 +83,7 @@ func _unhandled_input(event):
 		get_node("Camera3D/knife").inspect()
 
 	if event.is_action_pressed("shoot"):
-		get_node("Camera3D/knife").shoot()
+		get_node("Camera3D/knife").attack()
 
 		var collision = intersect_ray(reach)
 		if collision:
