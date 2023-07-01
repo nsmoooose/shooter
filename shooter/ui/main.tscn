@@ -23,18 +23,19 @@ visible = false
 [node name="ServerJoin" parent="HUD" instance=ExtResource("5_tp4o3")]
 visible = false
 
+[node name="Crosshair" parent="HUD" instance=ExtResource("4_o7drv")]
+visible = false
+
 [node name="Network" type="Node3D" parent="."]
 
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://maps/garden_by_day.tscn", "res://maps/garden_by_night.tscn")
 spawn_path = NodePath("../Network")
 
-[node name="Crosshair" parent="." instance=ExtResource("4_o7drv")]
-visible = false
-
 [connection signal="game_join" from="HUD/MainMenu" to="." method="_on_hud_game_join"]
 [connection signal="game_quit" from="HUD/MainMenu" to="." method="_on_hud_game_quit"]
 [connection signal="game_start" from="HUD/MainMenu" to="." method="_on_hud_game_start"]
+[connection signal="game_leave_server" from="HUD/PauseMenu" to="." method="_on_pause_menu_game_leave_server"]
 [connection signal="game_resume" from="HUD/PauseMenu" to="." method="_on_pause_menu_game_resume"]
 [connection signal="map_garden_day" from="HUD/MapMenu" to="." method="_on_map_menu_map_garden_day"]
 [connection signal="map_garden_night" from="HUD/MapMenu" to="." method="_on_map_menu_map_garden_night"]

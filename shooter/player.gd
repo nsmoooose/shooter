@@ -31,7 +31,7 @@ func _ready():
 		return
 
 	camera.make_current()
-		
+
 	# Only process for the local player.
 	set_process(get_multiplayer_authority() == multiplayer.get_unique_id())
 
@@ -54,7 +54,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta * friction)
 		velocity.z = move_toward(velocity.z, 0, speed * delta * friction)
-	
+
 	move_and_slide()
 
 

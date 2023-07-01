@@ -25,13 +25,13 @@ func game_ui_setup():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$HUD/MapMenu.visible = false
 	$HUD/MainMenu.visible = false
-	$Crosshair.visible = true
+	$HUD/Crosshair.visible = true
 
 
 func load_level(level_name: String):
 	for x in $Network.get_children():
 		x.queue_free()
-	
+
 	var scene:Resource = load(level_name)
 	var instance:Node3D = scene.instantiate()
 	$Network.add_child(instance)
@@ -39,7 +39,7 @@ func load_level(level_name: String):
 
 func _on_pause():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	$HUD/PauseMenu.visible = true	
+	$HUD/PauseMenu.visible = true
 
 
 func _on_pause_menu_game_resume():
@@ -54,7 +54,7 @@ func _on_hud_game_quit():
 func _on_hud_game_start():
 	$HUD/MainMenu.visible = false
 	$HUD/MapMenu.visible = true
-	
+
 
 func _on_hud_game_join():
 	$HUD/ServerJoin.visible = true
@@ -67,7 +67,7 @@ func _process(_delta):
 			_on_pause_menu_game_resume()
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			$HUD/PauseMenu.visible = true	
+			$HUD/PauseMenu.visible = true
 
 
 func _on_map_menu_map_garden_day():
@@ -96,3 +96,14 @@ func _on_server_join_server_menu_join(server):
 	$HUD/ServerJoin.visible = false
 	game_ui_setup()
 	network_join(server)
+
+
+func _on_pause_menu_game_leave_server():
+	for x in $Network.get_children():
+		x.queue_free()
+
+	multiplayer.multiplayer_peer = null
+
+	$HUD/MainMenu.visible = true
+	$HUD/PauseMenu.visible = false
+	$HUD/Crosshair.visible = true
