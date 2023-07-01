@@ -2,6 +2,13 @@ extends Node3D
 
 const PORT:int = 4433
 
+
+func _unhandled_input(event):
+	if event.is_action_pressed("console"):
+		$HUD/Console.visible = not $HUD/Console.visible
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if $HUD/Console.visible else Input.MOUSE_MODE_CAPTURED
+
+
 func network_host():
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT)

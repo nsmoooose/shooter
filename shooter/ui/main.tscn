@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=8 format=3 uid="uid://dvikwj25yuwvv"]
 
 [ext_resource type="Script" path="res://ui/main.gd" id="1_qa5fr"]
 [ext_resource type="PackedScene" uid="uid://s0hqcqgwpxn2" path="res://ui/main_menu.tscn" id="1_tvi0x"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4u3oo8xx6klf" path="res://ui/map_menu.tscn" id="4_dqk0r"]
 [ext_resource type="PackedScene" uid="uid://cjnuk8qic6mb" path="res://ui/crosshair.tscn" id="4_o7drv"]
 [ext_resource type="PackedScene" uid="uid://dudhauadglcko" path="res://ui/server_join.tscn" id="5_tp4o3"]
+[ext_resource type="PackedScene" uid="uid://52yjodxbbvy8" path="res://ui/console.tscn" id="7_7o3lp"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_qa5fr")
@@ -24,6 +25,9 @@ visible = false
 visible = false
 
 [node name="Crosshair" parent="HUD" instance=ExtResource("4_o7drv")]
+visible = false
+
+[node name="Console" parent="HUD" instance=ExtResource("7_7o3lp")]
 visible = false
 
 [node name="Network" type="Node3D" parent="."]
