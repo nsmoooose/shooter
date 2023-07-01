@@ -146,7 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0566351, 0, 0.0222227)
 script = ExtResource("1_j8ps5")
 
 [node name="model" parent="." instance=ExtResource("1_fe230")]
-transform = Transform3D(1, 0, 0, 0, 0.99998, -0.00625015, 0, 0.00625015, 0.99998, -0.352373, -0.664788, -0.509574)
+transform = Transform3D(1, 0, 0, 0, 0.999911, -0.0132899, 0, 0.0132899, 0.999911, 0, 0, 0)
 
 [node name="blade" parent="model" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10183, 0.0025332, -0.0241764)
