@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=7 format=3 uid="uid://dvikwj25yuwvv"]
 
 [ext_resource type="Script" path="res://ui/main.gd" id="1_qa5fr"]
 [ext_resource type="PackedScene" uid="uid://s0hqcqgwpxn2" path="res://ui/main_menu.tscn" id="1_tvi0x"]
 [ext_resource type="PackedScene" uid="uid://5sle6aa6xeea" path="res://ui/pause_menu.tscn" id="3_ykp1g"]
 [ext_resource type="PackedScene" uid="uid://b4u3oo8xx6klf" path="res://ui/map_menu.tscn" id="4_dqk0r"]
 [ext_resource type="PackedScene" uid="uid://cjnuk8qic6mb" path="res://ui/crosshair.tscn" id="4_o7drv"]
+[ext_resource type="PackedScene" uid="uid://dudhauadglcko" path="res://ui/server_join.tscn" id="5_tp4o3"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_qa5fr")
@@ -17,6 +18,9 @@ script = ExtResource("1_qa5fr")
 visible = false
 
 [node name="MapMenu" parent="HUD" instance=ExtResource("4_dqk0r")]
+visible = false
+
+[node name="ServerJoin" parent="HUD" instance=ExtResource("5_tp4o3")]
 visible = false
 
 [node name="Network" type="Node3D" parent="."]
@@ -35,3 +39,5 @@ visible = false
 [connection signal="map_garden_day" from="HUD/MapMenu" to="." method="_on_map_menu_map_garden_day"]
 [connection signal="map_garden_night" from="HUD/MapMenu" to="." method="_on_map_menu_map_garden_night"]
 [connection signal="map_menu_close" from="HUD/MapMenu" to="." method="_on_map_menu_map_menu_close"]
+[connection signal="server_menu_close" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_close"]
+[connection signal="server_menu_join" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_join"]

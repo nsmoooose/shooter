@@ -11,9 +11,9 @@ func network_host():
 	multiplayer.multiplayer_peer = peer
 
 
-func network_join():
+func network_join(server):
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_client("127.0.0.1", PORT)
+	peer.create_client(server, PORT)
 	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED:
 		OS.alert("Failed to start multiplayer client.")
 		return
@@ -57,8 +57,8 @@ func _on_hud_game_start():
 	
 
 func _on_hud_game_join():
-	game_ui_setup()
-	network_join()
+	$HUD/ServerJoin.visible = true
+	$HUD/MainMenu.visible = false
 
 
 func _process(_delta):
@@ -85,3 +85,14 @@ func _on_map_menu_map_garden_night():
 func _on_map_menu_map_menu_close():
 	$HUD/MapMenu.visible = false
 	$HUD/MainMenu.visible = true
+
+
+func _on_server_join_server_menu_close():
+	$HUD/ServerJoin.visible = false
+	$HUD/MainMenu.visible = true
+
+
+func _on_server_join_server_menu_join(server):
+	$HUD/ServerJoin.visible = false
+	game_ui_setup()
+	network_join(server)
