@@ -10,13 +10,17 @@ var commands = {}
 func console_activate():
 	visible = true
 	command.grab_focus()
+	
+	
+func cmd_clear():
+	history.clear()
 
 
 func cmd_help():
-	history.add_text("Help about commands that can be used.\n\n")
+	history.append_text("[b]Help about commands that can be used.[/b]\n\n")
 	for name in commands:
-		history.add_text("  %-20s: %s\n" % [name, commands[name]["desc"]])
-	history.add_text("\n")
+		history.append_text("  [b][color=green]%-20s[/color][/b] %s\n" % [name, commands[name]["desc"]])
+	history.append_text("\n")
 
 
 func cmd_quit():
@@ -28,13 +32,14 @@ func cmd_exit():
 
 
 func cmd_info():
-	history.add_text("Local system IP addresses:\n\n")
+	history.append_text("[b]Local system IP addresses:[/b]\n\n")
 	for x in IP.get_local_addresses():
-		history.add_text("  %s\n" % x)
-	history.add_text("\n")
+		history.append_text("  %s\n" % x)
+	history.append_text("\n")
 
 
 func _ready():
+	commands["clear"] = {"call": cmd_clear, "desc": "Clear console content"}
 	commands["exit"] = {"call": cmd_exit, "desc": "Exits the console"}
 	commands["help"] = {"call": cmd_help, "desc": "Shows help about known commands"}
 	commands["info"] = {"call": cmd_info, "desc": "Shows information about the current game"}
@@ -56,4 +61,4 @@ func _input(event):
 			if cmd in commands:
 				commands[cmd]["call"].call()
 			else:
-				history.add_text("ERROR: '" + cmd + "' is not a known command.\n")
+				history.append_text("ERROR: '" + cmd + "' is not a known command.\n")

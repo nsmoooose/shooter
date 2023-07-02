@@ -36,8 +36,10 @@ grow_vertical = 2
 [node name="History" type="RichTextLabel" parent="VSplitContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+bbcode_enabled = true
 scroll_following = true
 autowrap_mode = 0
+text_direction = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/Panel/VBoxContainer"]
 layout_mode = 2
