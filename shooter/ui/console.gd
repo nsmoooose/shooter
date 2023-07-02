@@ -18,8 +18,8 @@ func cmd_clear():
 
 func cmd_help():
 	history.append_text("[b]Help about commands that can be used.[/b]\n\n")
-	for name in commands:
-		history.append_text("  [b][color=green]%-20s[/color][/b] %s\n" % [name, commands[name]["desc"]])
+	for cmd_name in commands:
+		history.append_text("  [b][color=green]%-20s[/color][/b] %s\n" % [cmd_name, commands[cmd_name]["desc"]])
 	history.append_text("\n")
 
 
