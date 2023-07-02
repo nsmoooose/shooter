@@ -2,11 +2,13 @@ extends Node3D
 
 const PORT:int = 4433
 
+@onready var console = $HUD/Console
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("console"):
-		$HUD/Console.visible = not $HUD/Console.visible
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if $HUD/Console.visible else Input.MOUSE_MODE_CAPTURED
+		get_viewport().set_input_as_handled()
+		console.console_activate()
 
 
 func network_host():
@@ -114,3 +116,7 @@ func _on_pause_menu_game_leave_server():
 	$HUD/MainMenu.visible = true
 	$HUD/PauseMenu.visible = false
 	$HUD/Crosshair.visible = true
+
+
+func _on_console_console_close():
+	$HUD/Console.visible = false

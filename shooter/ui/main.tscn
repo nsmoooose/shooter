@@ -46,3 +46,4 @@ spawn_path = NodePath("../Network")
 [connection signal="map_menu_close" from="HUD/MapMenu" to="." method="_on_map_menu_map_menu_close"]
 [connection signal="server_menu_close" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_close"]
 [connection signal="server_menu_join" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_join"]
+[connection signal="console_close" from="HUD/Console" to="." method="_on_console_console_close"]

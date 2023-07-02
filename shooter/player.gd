@@ -69,20 +69,24 @@ func _unhandled_input(event):
 		return
 
 	if event is InputEventMouseMotion:
+		get_viewport().set_input_as_handled()
 		rotate_y(-event.relative.x * look_sensitivity)
 		camera.rotate_x(-event.relative.y * look_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 	if event.is_action_pressed("activate"):
+		get_viewport().set_input_as_handled()
 		var collision = intersect_ray(reach)
 		if collision:
 			if collision.collider.has_method("activate"):
 				collision.collider.activate()
 
 	if event.is_action_pressed("inspect"):
+		get_viewport().set_input_as_handled()
 		get_node("Camera3D/knife").inspect()
 
 	if event.is_action_pressed("shoot"):
+		get_viewport().set_input_as_handled()
 		get_node("Camera3D/knife").attack()
 
 		var collision = intersect_ray(reach)
