@@ -28,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VSplitContainer/Panel/VBoxContainer"]
+[node name="History" type="RichTextLabel" parent="VSplitContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
