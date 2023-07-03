@@ -3,7 +3,7 @@ extends Node3D
 @export var activated:bool = false
 @export var lamp:Node3D
 
-@rpc("any_peer", "call_remote")
+@rpc("any_peer", "call_local")
 func toggle():
 	if not lamp:
 		return
