@@ -3,6 +3,7 @@ extends Node3D
 @export var activated:bool = false
 @export var lamp:Node3D
 
+@rpc("any_peer", "call_remote")
 func toggle():
 	if not lamp:
 		return
@@ -16,7 +17,7 @@ func toggle():
 
 
 func activate():
-	toggle()
+	toggle.rpc()
 	if activated:
 		$AnimationPlayer.play("on")
 	else:
