@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=16 format=3 uid="uid://cy4qll45yo1dm"]
 
 [ext_resource type="Script" path="res://maps/level.gd" id="1_4iq7w"]
 [ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_y1kq3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="12_dq4jf"]
 [ext_resource type="PackedScene" uid="uid://irarcpfepvcb" path="res://objects/table_01.tscn" id="13_kw7tl"]
 [ext_resource type="PackedScene" uid="uid://riglk7h4r76j" path="res://scenes/stack_of_pallets.tscn" id="14_hrlju"]
+[ext_resource type="PackedScene" uid="uid://ol4dlmqtb8xf" path="res://objects/spanish_villa_passage_01.tscn" id="15_o4mb7"]
 
 [node name="Garden" type="Node3D"]
 script = ExtResource("1_4iq7w")
@@ -36,7 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.556, 1, -11.763)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
 
 [node name="light_switch_01" parent="." node_paths=PackedStringArray("lamp") instance=ExtResource("3_677k8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9253, 1.64832, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.0445, 1.23952, 0.278206)
 lamp = NodePath("../Lightposts")
 
 [node name="Lightposts" type="Node3D" parent="."]
@@ -339,3 +340,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3097, 0, 0)
 
 [node name="Stack of pallets" parent="Random stuff" instance=ExtResource("14_hrlju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21099, 0, -4.37763)
+
+[node name="SpanishVillaPassage" parent="." instance=ExtResource("15_o4mb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3955, 0.271147, 1.61643)
