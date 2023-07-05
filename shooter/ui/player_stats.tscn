@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://s0hqcqgwpxn2"]
+[gd_scene load_steps=3 format=3 uid="uid://d4m5hvia044b0"]
 
-[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_fe1go"]
-[ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="2_k5up4"]
+[ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="1_1oh2o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5p8y"]
 font_size = 50
 
-[node name="MainMenu" type="CanvasLayer"]
-script = ExtResource("1_fe1go")
+[node name="PlayerStats" type="CanvasLayer"]
 
-[node name="BlurPanel" parent="." instance=ExtResource("2_k5up4")]
+[node name="BlurPanel" parent="." instance=ExtResource("1_1oh2o")]
+offset_right = -1152.0
+offset_bottom = -648.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
@@ -21,7 +21,7 @@ theme_override_constants/separation = 27
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Shooter"
+text = "Player stats"
 label_settings = SubResource("LabelSettings_c5p8y")
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]

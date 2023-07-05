@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpx8mdnihun1p"]
+
+[ext_resource type="Shader" path="res://ui/blur.gdshader" id="1_np3x5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7b84"]
+shader = ExtResource("1_np3x5")
+shader_parameter/amount = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o18gn"]
+
+[node name="BlurPanel" type="Panel"]
+material = SubResource("ShaderMaterial_k7b84")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o18gn")

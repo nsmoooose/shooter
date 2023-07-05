@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dudhauadglcko"]
+[gd_scene load_steps=4 format=3 uid="uid://dudhauadglcko"]
 
 [ext_resource type="Script" path="res://ui/server_join.gd" id="1_54qx8"]
+[ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="2_h5e0q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5p8y"]
 font_size = 50
 
 [node name="ServerJoin" type="CanvasLayer"]
 script = ExtResource("1_54qx8")
+
+[node name="BlurPanel" parent="." instance=ExtResource("2_h5e0q")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

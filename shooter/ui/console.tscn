@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://52yjodxbbvy8"]
+[gd_scene load_steps=3 format=3 uid="uid://52yjodxbbvy8"]
 
 [ext_resource type="Script" path="res://ui/console.gd" id="1_nr8dk"]
-[ext_resource type="Shader" path="res://ui/blur.gdshader" id="2_hvdov"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_edequ"]
-shader = ExtResource("2_hvdov")
-shader_parameter/amount = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jo6y"]
+[ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="2_v0xtl"]
 
 [node name="Console" type="CanvasLayer"]
 script = ExtResource("1_nr8dk")
@@ -20,12 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 split_offset = 200
 
-[node name="Panel" type="Panel" parent="VSplitContainer"]
-material = SubResource("ShaderMaterial_edequ")
+[node name="BlurPanel" parent="VSplitContainer" instance=ExtResource("2_v0xtl")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4jo6y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/BlurPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="History" type="RichTextLabel" parent="VSplitContainer/Panel/VBoxContainer"]
+[node name="History" type="RichTextLabel" parent="VSplitContainer/BlurPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
@@ -41,14 +33,14 @@ scroll_following = true
 autowrap_mode = 0
 text_direction = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/BlurPanel/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VSplitContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VSplitContainer/BlurPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = ">"
 
-[node name="CommandTextEdit" type="TextEdit" parent="VSplitContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="CommandTextEdit" type="TextEdit" parent="VSplitContainer/BlurPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 

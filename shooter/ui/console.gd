@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var command = $VSplitContainer/Panel/VBoxContainer/HBoxContainer/CommandTextEdit
-@onready var history = $VSplitContainer/Panel/VBoxContainer/History
+@onready var command = $VSplitContainer/BlurPanel/VBoxContainer/HBoxContainer/CommandTextEdit
+@onready var history = $VSplitContainer/BlurPanel/VBoxContainer/History
 
 signal console_close
 
@@ -10,8 +10,8 @@ var commands = {}
 func console_activate():
 	visible = true
 	command.grab_focus()
-	
-	
+
+
 func cmd_clear():
 	history.clear()
 

@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4u3oo8xx6klf"]
+[gd_scene load_steps=4 format=3 uid="uid://b4u3oo8xx6klf"]
 
 [ext_resource type="Script" path="res://ui/map_menu.gd" id="1_yc56u"]
+[ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="2_ovr8x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5p8y"]
 font_size = 50
 
 [node name="MapMenu" type="CanvasLayer"]
 script = ExtResource("1_yc56u")
+
+[node name="BlurPanel" parent="." instance=ExtResource("2_ovr8x")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

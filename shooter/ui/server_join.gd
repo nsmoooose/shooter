@@ -12,7 +12,7 @@ const SERVERS_FILE = "user://servers.json"
 func load_servers():
 	if not FileAccess.file_exists(SERVERS_FILE):
 		return
-		
+
 	var data = JSON.parse_string(FileAccess.get_file_as_string(SERVERS_FILE))
 	itemlist.clear()
 	for server in data:
@@ -46,7 +46,7 @@ func _on_add_server_button_button_down():
 func _on_delete_server_button_button_down():
 	for idx in itemlist.get_selected_items():
 		itemlist.remove_item(idx)
-		
+
 	save_servers()
 
 
