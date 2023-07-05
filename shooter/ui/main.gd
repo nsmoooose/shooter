@@ -4,11 +4,18 @@ const PORT:int = 4433
 
 @onready var console = $HUD/Console
 
+var game_session_running:bool = false
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("console"):
 		get_viewport().set_input_as_handled()
 		console.console_activate()
+
+	if event.is_action_pressed("player_stats") and game_session_running:
+		get_viewport().set_input_as_handled()
+		$HUD/PlayerStats.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func network_host():
@@ -35,6 +42,7 @@ func game_ui_setup():
 	$HUD/MapMenu.visible = false
 	$HUD/MainMenu.visible = false
 	$HUD/Crosshair.visible = true
+	game_session_running = true
 
 
 func load_level(level_name: String):
@@ -112,6 +120,7 @@ func _on_pause_menu_game_leave_server():
 		x.queue_free()
 
 	multiplayer.multiplayer_peer = null
+	game_session_running = false
 
 	$HUD/MainMenu.visible = true
 	$HUD/PauseMenu.visible = false
@@ -120,3 +129,7 @@ func _on_pause_menu_game_leave_server():
 
 func _on_console_console_close():
 	$HUD/Console.visible = false
+
+
+func _on_player_stats_game_resume():
+	$HUD/PlayerStats.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=9 format=3 uid="uid://dvikwj25yuwvv"]
 
 [ext_resource type="Script" path="res://ui/main.gd" id="1_qa5fr"]
 [ext_resource type="PackedScene" uid="uid://s0hqcqgwpxn2" path="res://ui/main_menu.tscn" id="1_tvi0x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjnuk8qic6mb" path="res://ui/crosshair.tscn" id="4_o7drv"]
 [ext_resource type="PackedScene" uid="uid://dudhauadglcko" path="res://ui/server_join.tscn" id="5_tp4o3"]
 [ext_resource type="PackedScene" uid="uid://52yjodxbbvy8" path="res://ui/console.tscn" id="7_7o3lp"]
+[ext_resource type="PackedScene" uid="uid://d4m5hvia044b0" path="res://ui/player_stats.tscn" id="8_37tqc"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_qa5fr")
@@ -30,6 +31,9 @@ visible = false
 [node name="Console" parent="HUD" instance=ExtResource("7_7o3lp")]
 visible = false
 
+[node name="PlayerStats" parent="HUD" instance=ExtResource("8_37tqc")]
+visible = false
+
 [node name="Network" type="Node3D" parent="."]
 
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
@@ -47,3 +51,4 @@ spawn_path = NodePath("../Network")
 [connection signal="server_menu_close" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_close"]
 [connection signal="server_menu_join" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_join"]
 [connection signal="console_close" from="HUD/Console" to="." method="_on_console_console_close"]
+[connection signal="game_resume" from="HUD/PlayerStats" to="." method="_on_player_stats_game_resume"]

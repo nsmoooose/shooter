@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4m5hvia044b0"]
+[gd_scene load_steps=4 format=3 uid="uid://d4m5hvia044b0"]
 
 [ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="1_1oh2o"]
+[ext_resource type="Script" path="res://ui/player_stats.gd" id="1_rmw8m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5p8y"]
 font_size = 50
 
 [node name="PlayerStats" type="CanvasLayer"]
+script = ExtResource("1_rmw8m")
 
 [node name="BlurPanel" parent="." instance=ExtResource("1_1oh2o")]
-offset_right = -1152.0
-offset_bottom = -648.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(200, 0)
 offset_left = 50.0
 offset_top = 50.0
@@ -19,32 +27,22 @@ offset_right = 455.0
 offset_bottom = 475.0
 theme_override_constants/separation = 27
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Player stats"
 label_settings = SubResource("LabelSettings_c5p8y")
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="ItemList" type="ItemList" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 3
+item_0/text = "apa 1"
+item_1/text = "apa 2"
+item_2/text = "apa 3"
+
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Host server"
+text = "Back into action"
 
-[node name="JoinServerButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Join server"
-
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Settings"
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Quit"
-
-[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/JoinServerButton" to="." method="_on_join_server_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/ResumeButton" to="." method="_on_leave_button_button_down"]
