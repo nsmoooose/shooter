@@ -111,5 +111,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Back"
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="button_down" from="Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ApplyButton" to="." method="_on_apply_button_button_down"]
 [connection signal="button_down" from="Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_button_down"]
