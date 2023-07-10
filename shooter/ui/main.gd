@@ -20,6 +20,14 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 		$HUD/PlayerStats.visible = false
 
+	if event.is_action_pressed("ui_cancel") and game_session_running:
+		get_viewport().set_input_as_handled()
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			_on_pause_menu_game_resume()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			$HUD/PauseMenu.visible = true
+
 
 func network_host():
 	var peer = ENetMultiplayerPeer.new()
@@ -79,15 +87,6 @@ func _on_hud_game_start():
 func _on_hud_game_join():
 	$HUD/ServerJoin.visible = true
 	$HUD/MainMenu.visible = false
-
-
-func _process(_delta):
-	if !$HUD/MainMenu.visible and Input.is_action_just_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			_on_pause_menu_game_resume()
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			$HUD/PauseMenu.visible = true
 
 
 func _on_map_menu_map_garden_day():
