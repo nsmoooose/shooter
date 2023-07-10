@@ -15,7 +15,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("player_stats") and game_session_running:
 		get_viewport().set_input_as_handled()
 		$HUD/PlayerStats.visible = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+	if event.is_action_released("player_stats") and game_session_running:
+		get_viewport().set_input_as_handled()
+		$HUD/PlayerStats.visible = false
 
 
 func network_host():
@@ -129,7 +132,3 @@ func _on_pause_menu_game_leave_server():
 
 func _on_console_console_close():
 	$HUD/Console.visible = false
-
-
-func _on_player_stats_game_resume():
-	$HUD/PlayerStats.visible = false
