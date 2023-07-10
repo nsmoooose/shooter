@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6md80mbe1bqi"]
+
+[ext_resource type="Script" path="res://ui/options_menu.gd" id="1_2oer8"]
+[ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="2_r8q05"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c5p8y"]
+font_size = 50
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_2oer8")
+
+[node name="BlurPanel" parent="." instance=ExtResource("2_r8q05")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Shooter / Options"
+label_settings = SubResource("LabelSettings_c5p8y")
+
+[node name="TabContainer" type="TabContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Player" type="Panel" parent="Control/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/TabContainer/Player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/TabContainer/Player/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/TabContainer/Player/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Name
+"
+
+[node name="PlayerNameTextEdit" type="TextEdit" parent="Control/MarginContainer/VBoxContainer/TabContainer/Player/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Graphics" type="Panel" parent="Control/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer/TabContainer/Graphics"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+text = "Screen size"
+
+[node name="OptionButton" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+text = "Full screen"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ApplyButton" type="Button" parent="Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Apply"
+
+[node name="BackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[connection signal="button_down" from="Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ApplyButton" to="." method="_on_apply_button_button_down"]
+[connection signal="button_down" from="Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_button_down"]

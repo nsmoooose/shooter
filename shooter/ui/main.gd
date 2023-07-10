@@ -132,3 +132,18 @@ func _on_pause_menu_game_leave_server():
 
 func _on_console_console_close():
 	$HUD/Console.visible = false
+
+
+func _on_main_menu_game_options():
+	$HUD/OptionsMenu.visible = true
+	$HUD/MainMenu.visible = false
+
+
+func _on_options_menu_game_resume():
+	$HUD/OptionsMenu.visible = false
+	$HUD/MainMenu.visible = true
+
+
+func _on_options_menu_game_options_apply():
+	$HUD/OptionsMenu.visible = false
+	$HUD/MainMenu.visible = true

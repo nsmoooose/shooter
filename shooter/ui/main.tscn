@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=10 format=3 uid="uid://dvikwj25yuwvv"]
 
 [ext_resource type="Script" path="res://ui/main.gd" id="1_qa5fr"]
 [ext_resource type="PackedScene" uid="uid://s0hqcqgwpxn2" path="res://ui/main_menu.tscn" id="1_tvi0x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dudhauadglcko" path="res://ui/server_join.tscn" id="5_tp4o3"]
 [ext_resource type="PackedScene" uid="uid://52yjodxbbvy8" path="res://ui/console.tscn" id="7_7o3lp"]
 [ext_resource type="PackedScene" uid="uid://d4m5hvia044b0" path="res://ui/player_stats.tscn" id="8_37tqc"]
+[ext_resource type="PackedScene" uid="uid://c6md80mbe1bqi" path="res://ui/options_menu.tscn" id="9_k2sgo"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_qa5fr")
@@ -34,6 +35,9 @@ visible = false
 [node name="PlayerStats" parent="HUD" instance=ExtResource("8_37tqc")]
 visible = false
 
+[node name="OptionsMenu" parent="HUD" instance=ExtResource("9_k2sgo")]
+visible = false
+
 [node name="Network" type="Node3D" parent="."]
 
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
@@ -41,6 +45,7 @@ _spawnable_scenes = PackedStringArray("res://maps/garden_by_day.tscn", "res://ma
 spawn_path = NodePath("../Network")
 
 [connection signal="game_join" from="HUD/MainMenu" to="." method="_on_hud_game_join"]
+[connection signal="game_options" from="HUD/MainMenu" to="." method="_on_main_menu_game_options"]
 [connection signal="game_quit" from="HUD/MainMenu" to="." method="_on_hud_game_quit"]
 [connection signal="game_start" from="HUD/MainMenu" to="." method="_on_hud_game_start"]
 [connection signal="game_leave_server" from="HUD/PauseMenu" to="." method="_on_pause_menu_game_leave_server"]
@@ -51,3 +56,5 @@ spawn_path = NodePath("../Network")
 [connection signal="server_menu_close" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_close"]
 [connection signal="server_menu_join" from="HUD/ServerJoin" to="." method="_on_server_join_server_menu_join"]
 [connection signal="console_close" from="HUD/Console" to="." method="_on_console_console_close"]
+[connection signal="game_options_apply" from="HUD/OptionsMenu" to="." method="_on_options_menu_game_options_apply"]
+[connection signal="game_resume" from="HUD/OptionsMenu" to="." method="_on_options_menu_game_resume"]
