@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var command = $VSplitContainer/BlurPanel/VBoxContainer/HBoxContainer/CommandTextEdit
-@onready var history = $VSplitContainer/BlurPanel/VBoxContainer/History
+@onready var command = $VSplitContainer/BlurPanel/MarginContainer/VBoxContainer/HBoxContainer/CommandTextEdit
+@onready var history = $VSplitContainer/BlurPanel/MarginContainer/VBoxContainer/History
 
 signal console_close
 

@@ -73,6 +73,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Graphics" type="Panel" parent="Control/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer/TabContainer/Graphics"]
