@@ -96,5 +96,5 @@ player_stats={
 [player]
 
 look_sensitivity=0.005
-friction=2.0
+friction=4.0
 reach=2.0
