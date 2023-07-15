@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwkh3o102uqbo"]
+
+[ext_resource type="PackedScene" uid="uid://cuguvtc45ufe3" path="res://objects/spanish_villa_wall_01.glb" id="1_q56av"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m3a35"]
+size = Vector3(0.2, 2, 2)
+
+[node name="SpanishVillaWall01" type="StaticBody3D"]
+
+[node name="model" parent="." instance=ExtResource("1_q56av")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_m3a35")

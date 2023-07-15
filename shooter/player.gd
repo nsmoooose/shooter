@@ -15,6 +15,8 @@ extends CharacterBody3D
 		# Give authority over the player input to the appropriate peer.
 		$PlayerInput.set_multiplayer_authority(id)
 
+@export var health:int = 100
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_sensitivity:float = ProjectSettings.get_setting("player/look_sensitivity")

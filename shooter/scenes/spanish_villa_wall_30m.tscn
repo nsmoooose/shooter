@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyy18ppfgvupb"]
+
+[ext_resource type="PackedScene" uid="uid://cwkh3o102uqbo" path="res://objects/spanish_villa_wall_01.tscn" id="1_wch21"]
+
+[node name="spanish_villa_wall_30m" type="Node3D"]
+
+[node name="SpanishVillaWall01" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="SpanishVillaWall02" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="SpanishVillaWall03" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="SpanishVillaWall04" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="SpanishVillaWall05" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="SpanishVillaWall06" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="SpanishVillaWall07" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="SpanishVillaWall08" parent="." instance=ExtResource("1_wch21")]
+
+[node name="SpanishVillaWall09" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="SpanishVillaWall10" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="SpanishVillaWall11" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="SpanishVillaWall12" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="SpanishVillaWall13" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="SpanishVillaWall14" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="SpanishVillaWall15" parent="." instance=ExtResource("1_wch21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)

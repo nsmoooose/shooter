@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy4qll45yo1dm"]
+[gd_scene load_steps=17 format=3 uid="uid://cy4qll45yo1dm"]
 
 [ext_resource type="Script" path="res://maps/level.gd" id="1_4iq7w"]
 [ext_resource type="PackedScene" uid="uid://dp5hi7jguqf23" path="res://objects/fountain_foundation_01.tscn" id="2_y1kq3"]
@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://0ymjexola3ib" path="res://objects/tree_02.tscn" id="10_7r5m4"]
 [ext_resource type="PackedScene" uid="uid://vu4prd2aicbt" path="res://objects/tree_03.tscn" id="11_tod5f"]
 [ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="12_dq4jf"]
-[ext_resource type="PackedScene" uid="uid://irarcpfepvcb" path="res://objects/table_01.tscn" id="13_kw7tl"]
+[ext_resource type="PackedScene" path="res://objects/table_01.tscn" id="13_kw7tl"]
 [ext_resource type="PackedScene" uid="uid://riglk7h4r76j" path="res://scenes/stack_of_pallets.tscn" id="14_hrlju"]
 [ext_resource type="PackedScene" uid="uid://ol4dlmqtb8xf" path="res://objects/spanish_villa_passage_01.tscn" id="15_o4mb7"]
+[ext_resource type="PackedScene" uid="uid://dyy18ppfgvupb" path="res://scenes/spanish_villa_wall_30m.tscn" id="16_4v4ym"]
 
 [node name="Garden" type="Node3D"]
 script = ExtResource("1_4iq7w")
@@ -37,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.556, 1, -11.763)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339199, 0, 1.47722)
 
 [node name="light_switch_01" parent="." node_paths=PackedStringArray("lamp") instance=ExtResource("3_677k8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.0445, 1.23952, 0.278206)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.792913, 1.23952, -9.84762)
 lamp = NodePath("../Lightposts")
 
 [node name="Lightposts" type="Node3D" parent="."]
@@ -342,4 +343,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3097, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21099, 0, -4.37763)
 
 [node name="SpanishVillaPassage" parent="." instance=ExtResource("15_o4mb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3955, 0.271147, 1.61643)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.13114, 0.271147, -11.1986)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="spanish_villa_wall_30m" parent="Walls" instance=ExtResource("16_4v4ym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8738, 0, 0)
+
+[node name="spanish_villa_wall_30m4" parent="Walls" instance=ExtResource("16_4v4ym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9375, 0, 0)
+
+[node name="spanish_villa_wall_30m2" parent="Walls" instance=ExtResource("16_4v4ym")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.185928, 0, 14.8026)
+
+[node name="spanish_villa_wall_30m3" parent="Walls" instance=ExtResource("16_4v4ym")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.185928, 0, -15.0241)
