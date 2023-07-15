@@ -21,6 +21,8 @@ var look_sensitivity:float = ProjectSettings.get_setting("player/look_sensitivit
 var friction:float = ProjectSettings.get_setting("player/friction")
 var reach:float = ProjectSettings.get_setting("player/reach")
 
+const LOOK_DOWN_LIMIT:float = -0.9
+const LOOK_UP_LIMIT:float = 1.5
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -72,7 +74,7 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 		rotate_y(-event.relative.x * look_sensitivity)
 		camera.rotate_x(-event.relative.y * look_sensitivity)
-		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		camera.rotation.x = clamp(camera.rotation.x, LOOK_DOWN_LIMIT, LOOK_UP_LIMIT)
 
 	if event.is_action_pressed("activate"):
 		get_viewport().set_input_as_handled()
