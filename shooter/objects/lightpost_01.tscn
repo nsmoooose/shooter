@@ -11,6 +11,7 @@ radius = 0.1
 properties/0/path = NodePath("light:visible")
 properties/0/spawn = true
 properties/0/sync = true
+properties/0/watch = false
 
 [node name="Lightpost 01" type="StaticBody3D"]
 script = ExtResource("1_8es31")
@@ -19,7 +20,9 @@ script = ExtResource("1_8es31")
 
 [node name="light" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66032, 0)
+light_color = Color(0.929412, 0.94902, 0.780392, 1)
 shadow_enabled = true
+omni_range = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.253, 0)
