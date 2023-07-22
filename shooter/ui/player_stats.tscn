@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4m5hvia044b0"]
+[gd_scene load_steps=5 format=3 uid="uid://d4m5hvia044b0"]
 
 [ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="1_1oh2o"]
 [ext_resource type="Script" path="res://ui/player_stats.gd" id="1_rmw8m"]
+[ext_resource type="PackedScene" uid="uid://cfmhng3beb40s" path="res://ui/player_status_row.tscn" id="3_jtglh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5p8y"]
 font_size = 50
@@ -33,10 +34,50 @@ layout_mode = 2
 text = "Player stats"
 label_settings = SubResource("LabelSettings_c5p8y")
 
-[node name="ItemList" type="ItemList" parent="Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-item_count = 3
-item_0/text = "apa 1"
-item_1/text = "apa 2"
-item_2/text = "apa 3"
+
+[node name="Player name" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Name
+"
+
+[node name="Kills" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Kills
+"
+horizontal_alignment = 1
+
+[node name="Deaths" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Deaths
+"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Health"
+horizontal_alignment = 1
+
+[node name="players" type="VBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="playerstatusrow" parent="Control/VBoxContainer/players" instance=ExtResource("3_jtglh")]
+layout_mode = 2
+
+[node name="playerstatusrow2" parent="Control/VBoxContainer/players" instance=ExtResource("3_jtglh")]
+layout_mode = 2
+
+[node name="playerstatusrow3" parent="Control/VBoxContainer/players" instance=ExtResource("3_jtglh")]
+layout_mode = 2
+
+[node name="playerstatusrow4" parent="Control/VBoxContainer/players" instance=ExtResource("3_jtglh")]
+layout_mode = 2

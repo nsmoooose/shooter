@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://0ymjexola3ib" path="res://objects/tree_02.tscn" id="10_7r5m4"]
 [ext_resource type="PackedScene" uid="uid://vu4prd2aicbt" path="res://objects/tree_03.tscn" id="11_tod5f"]
 [ext_resource type="PackedScene" uid="uid://dct6dlr2j1ab5" path="res://objects/tree_04.tscn" id="12_dq4jf"]
-[ext_resource type="PackedScene" uid="uid://irarcpfepvcb" path="res://objects/table_01.tscn" id="13_kw7tl"]
+[ext_resource type="PackedScene" path="res://objects/table_01.tscn" id="13_kw7tl"]
 [ext_resource type="PackedScene" uid="uid://riglk7h4r76j" path="res://scenes/stack_of_pallets.tscn" id="14_hrlju"]
 [ext_resource type="PackedScene" uid="uid://ol4dlmqtb8xf" path="res://objects/spanish_villa_passage_01.tscn" id="15_o4mb7"]
 [ext_resource type="PackedScene" uid="uid://dyy18ppfgvupb" path="res://scenes/spanish_villa_wall_30m.tscn" id="16_4v4ym"]
