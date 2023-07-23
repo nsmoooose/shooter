@@ -4,11 +4,7 @@ extends Node
 # https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html
 
 # Player info, associate ID to data
-var player_info = {}
-
-# Info we send to other players
-var my_info = { name = "Johnson Magenta", favorite_color = Color8(255, 0, 255) }
-
+var all_players = {}
 
 func _ready():
 	multiplayer.peer_connected.connect(_player_connected)
@@ -20,11 +16,12 @@ func _ready():
 
 func _player_connected(id):
 	# Called on both clients and server when a peer connects. Send my info to it.
-	register_player.rpc(id, my_info)
+	var player_info = GameOptions.load_config()["player"]
+	register_player.rpc(id, player_info)
 
 func _player_disconnected(id):
 	# Erase player from info.
-	player_info.erase(id)
+	all_players.erase(id)
 
 func _connected_ok():
 	# Only called on clients, not server. Will go unused; not useful here.
@@ -41,4 +38,4 @@ func _connected_fail():
 @rpc("any_peer", "call_local")
 func register_player(id, info):
 	# Get the id of the RPC sender and store the info.
-	player_info[id] = info
+	all_players[id] = info
