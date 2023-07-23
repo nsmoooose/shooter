@@ -146,3 +146,7 @@ func _on_options_menu_game_resume():
 func _on_options_menu_game_options_apply():
 	$HUD/OptionsMenu.visible = false
 	$HUD/MainMenu.visible = true
+
+
+func _on_lobby_lobby_changed():
+	$HUD/PlayerStats.update_player_list($Lobby.all_players)

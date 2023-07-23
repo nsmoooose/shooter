@@ -6,6 +6,8 @@ extends Node
 # Player info, associate ID to data
 var all_players = {}
 
+signal lobby_changed
+
 func _ready():
 	multiplayer.peer_connected.connect(_player_connected)
 	multiplayer.peer_disconnected.connect(_player_disconnected)
@@ -15,13 +17,11 @@ func _ready():
 
 
 func _player_connected(id):
-	# Called on both clients and server when a peer connects. Send my info to it.
 	var player_info = GameOptions.load_config()["player"]
 	register_player.rpc(id, player_info)
 
 func _player_disconnected(id):
-	# Erase player from info.
-	all_players.erase(id)
+	unregister_player.rpc(id)
 
 func _connected_ok():
 	# Only called on clients, not server. Will go unused; not useful here.
@@ -35,7 +35,15 @@ func _connected_fail():
 	# Could not even connect to server; abort.
 	pass
 
+
+@rpc("any_peer", "call_local")
+func unregister_player(id):
+	print("Unregister player")
+	all_players.erase(id)
+	lobby_changed.emit()
+
 @rpc("any_peer", "call_local")
 func register_player(id, info):
-	# Get the id of the RPC sender and store the info.
+	print("Registering player")
 	all_players[id] = info
+	lobby_changed.emit()

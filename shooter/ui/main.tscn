@@ -61,3 +61,4 @@ spawn_path = NodePath("../Network")
 [connection signal="console_close" from="HUD/Console" to="." method="_on_console_console_close"]
 [connection signal="game_options_apply" from="HUD/OptionsMenu" to="." method="_on_options_menu_game_options_apply"]
 [connection signal="game_resume" from="HUD/OptionsMenu" to="." method="_on_options_menu_game_resume"]
+[connection signal="lobby_changed" from="Lobby" to="." method="_on_lobby_lobby_changed"]
