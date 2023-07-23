@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctwywkogax4kr"]
+
+[ext_resource type="Script" path="res://logic/lobby.gd" id="1_h6aqr"]
+
+[node name="Lobby" type="Node"]
+script = ExtResource("1_h6aqr")

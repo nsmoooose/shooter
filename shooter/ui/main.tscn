@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvikwj25yuwvv"]
+[gd_scene load_steps=11 format=3 uid="uid://dvikwj25yuwvv"]
 
 [ext_resource type="Script" path="res://ui/main.gd" id="1_qa5fr"]
 [ext_resource type="PackedScene" uid="uid://s0hqcqgwpxn2" path="res://ui/main_menu.tscn" id="1_tvi0x"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://52yjodxbbvy8" path="res://ui/console.tscn" id="7_7o3lp"]
 [ext_resource type="PackedScene" uid="uid://d4m5hvia044b0" path="res://ui/player_stats.tscn" id="8_37tqc"]
 [ext_resource type="PackedScene" uid="uid://c6md80mbe1bqi" path="res://ui/options_menu.tscn" id="9_k2sgo"]
+[ext_resource type="PackedScene" uid="uid://ctwywkogax4kr" path="res://logic/lobby.tscn" id="10_chuce"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_qa5fr")
@@ -43,6 +44,8 @@ visible = false
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://maps/garden_by_day.tscn", "res://maps/garden_by_night.tscn")
 spawn_path = NodePath("../Network")
+
+[node name="Lobby" parent="." instance=ExtResource("10_chuce")]
 
 [connection signal="game_join" from="HUD/MainMenu" to="." method="_on_hud_game_join"]
 [connection signal="game_options" from="HUD/MainMenu" to="." method="_on_main_menu_game_options"]
