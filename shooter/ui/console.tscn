@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://52yjodxbbvy8"]
+[gd_scene load_steps=9 format=3 uid="uid://52yjodxbbvy8"]
 
 [ext_resource type="Script" path="res://ui/console.gd" id="1_nr8dk"]
 [ext_resource type="PackedScene" uid="uid://dpx8mdnihun1p" path="res://ui/blur_panel.tscn" id="2_v0xtl"]
+[ext_resource type="Script" path="res://console/console_manager.gd" id="3_bt8wl"]
+[ext_resource type="Script" path="res://console/console_clear.gd" id="4_ds38q"]
+[ext_resource type="Script" path="res://console/console_help.gd" id="4_va2po"]
+[ext_resource type="Script" path="res://console/console_quit.gd" id="5_0uu2w"]
+[ext_resource type="Script" path="res://console/console_exit.gd" id="5_yflxw"]
+[ext_resource type="Script" path="res://console/console_info.gd" id="6_mddfp"]
 
 [node name="Console" type="CanvasLayer"]
 script = ExtResource("1_nr8dk")
@@ -54,3 +60,23 @@ size_flags_horizontal = 3
 [node name="Label" type="Label" parent="VSplitContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+
+[node name="ConsoleManager" type="Node" parent="."]
+script = ExtResource("3_bt8wl")
+
+[node name="clear" type="Node" parent="ConsoleManager"]
+script = ExtResource("4_ds38q")
+
+[node name="exit" type="Node" parent="ConsoleManager"]
+script = ExtResource("5_yflxw")
+
+[node name="help" type="Node" parent="ConsoleManager"]
+script = ExtResource("4_va2po")
+
+[node name="info" type="Node" parent="ConsoleManager"]
+script = ExtResource("6_mddfp")
+
+[node name="quit" type="Node" parent="ConsoleManager"]
+script = ExtResource("5_0uu2w")
+
+[connection signal="console_clear" from="ConsoleManager" to="." method="_on_console_manager_console_clear"]
