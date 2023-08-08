@@ -67,8 +67,9 @@ script = ExtResource("3_bt8wl")
 [node name="clear" type="Node" parent="ConsoleManager"]
 script = ExtResource("4_ds38q")
 
-[node name="exit" type="Node" parent="ConsoleManager"]
+[node name="exit" type="Node" parent="ConsoleManager" node_paths=PackedStringArray("node_to_hide")]
 script = ExtResource("5_yflxw")
+node_to_hide = NodePath("../..")
 
 [node name="help" type="Node" parent="ConsoleManager"]
 script = ExtResource("4_va2po")
