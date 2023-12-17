@@ -33,8 +33,9 @@ visible = false
 [node name="Console" parent="HUD" instance=ExtResource("7_7o3lp")]
 visible = false
 
-[node name="PlayerStats" parent="HUD" instance=ExtResource("8_37tqc")]
+[node name="PlayerStats" parent="HUD" node_paths=PackedStringArray("lobby") instance=ExtResource("8_37tqc")]
 visible = false
+lobby = NodePath("../../Lobby")
 
 [node name="OptionsMenu" parent="HUD" instance=ExtResource("9_k2sgo")]
 visible = false

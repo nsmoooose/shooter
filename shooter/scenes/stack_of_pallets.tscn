@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://riglk7h4r76j"]
 
-[ext_resource type="PackedScene" path="res://objects/eu_pallet.tscn" id="1_itt5g"]
+[ext_resource type="PackedScene" uid="uid://b83iu5f3lk1nu" path="res://objects/eu_pallet.tscn" id="1_itt5g"]
 
 [node name="Stack of pallets" type="Node3D"]
 

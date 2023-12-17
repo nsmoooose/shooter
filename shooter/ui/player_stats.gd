@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var players = $Control/VBoxContainer/players
 
-
 func update_player_list(updated_player_list):
 	for node in players.get_children():
 		node.queue_free()
@@ -11,3 +10,5 @@ func update_player_list(updated_player_list):
 	for player in updated_player_list:
 		var instance: Node = res.instantiate()
 		players.add_child(instance)
+
+@export var lobby: Node
